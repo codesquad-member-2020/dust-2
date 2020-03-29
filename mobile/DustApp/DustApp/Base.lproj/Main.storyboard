@@ -116,7 +116,66 @@
                     <view key="view" contentMode="scaleToFill" id="KL0-Yv-yVE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미세먼지 예보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8k-Hk-HXz">
+                                <rect key="frame" x="131" y="52" width="152" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aIS-Bo-Gn7">
+                                <rect key="frame" x="0.0" y="102" width="414" height="493"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="○ [미세먼지] 수도권·충청권·광주·전북은 ‘나쁨’, 그 밖의 권역은 ‘보통’으로 예상됨. 다만, 강원영서·대구는 오전에 ‘나쁨’ 수준일 것으로 예상됨." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ima-ZN-35w">
+                                <rect key="frame" x="16" y="603" width="382" height="50.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="8l0-6q-YnP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZa-FS-Mny">
+                                <rect key="frame" x="16" y="657.5" width="382" height="43"/>
+                                <string key="text">서울 : 보통,제주 : 좋음,전남 : 좋음,전북 : 보통,광주 : 좋음,경남 : 좋음,경북 : 보통,울산 : 좋음,대구 : 보통,부산 : 좋음,충남 : 보통,충북 : 보통,세종 : 보통,대전 : 보통,영동 : 좋음,영서 : 보통,경기남부 : 보통,경기북부 : 보통,인천 : 보통</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6R0-vb-j47">
+                                <rect key="frame" x="74" y="760" width="326" height="31"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4x-ya-LG4">
+                                <rect key="frame" x="16" y="753" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="F4x-ya-LG4" secondAttribute="height" multiplier="1:1" id="ole-nP-7j0"/>
+                                    <constraint firstAttribute="width" constant="44" id="rTX-7a-lHq"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="play.fill"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ima-ZN-35w" firstAttribute="leading" secondItem="pCz-eT-E6a" secondAttribute="leading" constant="16" id="8Ut-TL-CDJ"/>
+                            <constraint firstItem="F4x-ya-LG4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BZa-FS-Mny" secondAttribute="bottom" priority="750" constant="8" id="CEt-xo-S5C"/>
+                            <constraint firstItem="pCz-eT-E6a" firstAttribute="trailing" secondItem="ima-ZN-35w" secondAttribute="trailing" constant="16" id="Clu-7P-PWg"/>
+                            <constraint firstItem="ima-ZN-35w" firstAttribute="top" secondItem="aIS-Bo-Gn7" secondAttribute="bottom" constant="8" id="FNG-dJ-vpQ"/>
+                            <constraint firstItem="aIS-Bo-Gn7" firstAttribute="top" secondItem="C8k-Hk-HXz" secondAttribute="bottom" constant="16" id="Knh-Wm-Ma6"/>
+                            <constraint firstItem="F4x-ya-LG4" firstAttribute="leading" secondItem="pCz-eT-E6a" secondAttribute="leading" constant="16" id="TVU-5V-IJ5"/>
+                            <constraint firstItem="C8k-Hk-HXz" firstAttribute="top" secondItem="pCz-eT-E6a" secondAttribute="top" constant="8" id="VEf-e2-GM0"/>
+                            <constraint firstItem="pCz-eT-E6a" firstAttribute="trailing" secondItem="aIS-Bo-Gn7" secondAttribute="trailing" id="bCq-1P-Nmj"/>
+                            <constraint firstItem="aIS-Bo-Gn7" firstAttribute="height" secondItem="KL0-Yv-yVE" secondAttribute="height" multiplier="0.55" id="iRx-xJ-ycV"/>
+                            <constraint firstItem="6R0-vb-j47" firstAttribute="leading" secondItem="F4x-ya-LG4" secondAttribute="trailing" constant="16" id="j6L-gG-zPj"/>
+                            <constraint firstItem="C8k-Hk-HXz" firstAttribute="centerX" secondItem="KL0-Yv-yVE" secondAttribute="centerX" id="jyz-gs-03q"/>
+                            <constraint firstItem="pCz-eT-E6a" firstAttribute="trailing" secondItem="6R0-vb-j47" secondAttribute="trailing" constant="16" id="shI-iY-Sqa"/>
+                            <constraint firstItem="aIS-Bo-Gn7" firstAttribute="leading" secondItem="pCz-eT-E6a" secondAttribute="leading" id="t47-uD-0YP"/>
+                            <constraint firstAttribute="trailing" secondItem="BZa-FS-Mny" secondAttribute="trailing" constant="16" id="uTn-1Y-Ysl"/>
+                            <constraint firstItem="BZa-FS-Mny" firstAttribute="leading" secondItem="pCz-eT-E6a" secondAttribute="leading" constant="16" id="vLg-cA-mzw"/>
+                            <constraint firstItem="6R0-vb-j47" firstAttribute="centerY" secondItem="F4x-ya-LG4" secondAttribute="centerY" id="w1Y-WO-PON"/>
+                            <constraint firstItem="pCz-eT-E6a" firstAttribute="bottom" secondItem="F4x-ya-LG4" secondAttribute="bottom" constant="16" id="wVc-Wh-i9a"/>
+                            <constraint firstItem="BZa-FS-Mny" firstAttribute="top" secondItem="ima-ZN-35w" secondAttribute="bottom" constant="4" id="xkg-IS-YkZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pCz-eT-E6a"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="예보" image="clock.fill" id="OZV-8P-OjP"/>
@@ -125,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dae-u9-JK1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="825"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="825"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uaB-v0-oax">
@@ -149,5 +208,6 @@
     <resources>
         <image name="clock.fill" width="17" height="17"/>
         <image name="cloud.fill" width="19" height="13"/>
+        <image name="play.fill" width="13" height="14"/>
     </resources>
 </document>
