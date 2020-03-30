@@ -35,34 +35,14 @@ class DustStatusView: UIView {
     var dustInfo = DustInfo(grade: .normal, density: -1, time: Date(), instrument: "-") {
         didSet {
             densityLabel.text = "\(dustInfo.density)𝜇g/m³"
-            gradeLabel.text = gradeWord()
+            gradeLabel.text = dustInfo.grade.gradeWord()
             instrumentLabel.text = "\(dustInfo.instrument) 측정 기준"
-            gradientColor = color()
+            gradientColor = dustInfo.grade.color()
         }
     }
     
     private func updateGradientLayerColor(with color: CGColor) {
         gradientLayer.colors = [color,color,color, UIColor(named: "systemWhite")!.cgColor]
-    }
-    
-    private func gradeWord() -> String {
-        switch dustInfo.grade {
-            case .worst: return "매우 나쁨"
-            case .bad: return "나쁨"
-            case .normal: return "보통"
-            case .good: return "좋음"
-            case .none: return "-"
-        }
-    }
-    
-    private func color() -> CGColor {
-        switch dustInfo.grade {
-            case .good: return UIColor(named: "good")!.cgColor
-            case .normal: return UIColor(named: "normal")!.cgColor
-            case .bad: return UIColor(named: "bad")!.cgColor
-            case .worst: return UIColor(named: "worst")!.cgColor
-            case .none: return UIColor.white.cgColor
-        }
     }
     
     override init(frame: CGRect) {

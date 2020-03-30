@@ -31,4 +31,14 @@ extension DustInfo.Grade {
             case .none: return UIColor.white.cgColor
         }
     }
+    
+    func gradeWord() -> String {
+        switch self {
+            case .worst: return "매우 나쁨"
+            case .bad: return "나쁨"
+            case .normal: return "보통"
+            case .good: return "좋음"
+            case .none: return "-"
+        }
+    }
 }
