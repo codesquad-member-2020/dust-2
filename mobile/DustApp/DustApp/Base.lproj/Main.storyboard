@@ -25,6 +25,28 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sYS-oI-sdB" id="26X-pg-iQX">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="57" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ER-67-JX5">
+                                                    <rect key="frame" x="381.5" y="13.5" width="16.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWe-Cw-Jhi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" priority="750" constant="240" id="NeY-hT-1hR"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="qWe-Cw-Jhi" secondAttribute="bottom" id="Ojo-AI-X8P"/>
+                                                <constraint firstItem="qWe-Cw-Jhi" firstAttribute="top" secondItem="26X-pg-iQX" secondAttribute="top" id="bD0-OI-AEQ"/>
+                                                <constraint firstItem="5ER-67-JX5" firstAttribute="centerY" secondItem="26X-pg-iQX" secondAttribute="centerY" id="vcG-AS-B7B"/>
+                                                <constraint firstAttribute="trailing" secondItem="5ER-67-JX5" secondAttribute="trailing" constant="16" id="z8Q-4U-sMZ"/>
+                                                <constraint firstItem="qWe-Cw-Jhi" firstAttribute="leading" secondItem="26X-pg-iQX" secondAttribute="leading" id="zxd-Z3-NrD"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -106,6 +128,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="미세먼지" image="cloud.fill" id="q8a-42-lxV"/>
+                    <connections>
+                        <outlet property="tableView" destination="1nm-Gm-FE0" id="X0R-V4-6ee"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
