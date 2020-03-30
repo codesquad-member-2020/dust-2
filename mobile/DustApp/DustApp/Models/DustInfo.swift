@@ -8,14 +8,15 @@
 
 import UIKit
 
-struct DustInfo {
-    enum grade {
-        case worst
-        case bad
-        case normal
-        case good
+struct DustInfo: Codable {
+
+    enum Grade: Int, Codable {
+        case good = 1, normal, bad, worst
+        case none
     }
     
-    var density: Int
-    var time: Date
+    private(set) var grade: Grade
+    private(set) var density: Int
+    private(set) var time: Date
+    private(set) var instrument: String
 }
