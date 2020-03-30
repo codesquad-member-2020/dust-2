@@ -35,7 +35,7 @@ class DustStatusView: UIView {
     var dustInfo = DustInfo(grade: .normal, density: -1, time: Date(), instrument: "-") {
         didSet {
             densityLabel.text = "\(dustInfo.density)𝜇g/m³"
-            gradeLabel.text = message()
+            gradeLabel.text = gradeWord()
             instrumentLabel.text = "\(dustInfo.instrument) 측정 기준"
             gradientColor = color()
         }
@@ -45,7 +45,7 @@ class DustStatusView: UIView {
         gradientLayer.colors = [color,color,color, UIColor.white.cgColor]
     }
     
-    private func message() -> String {
+    private func gradeWord() -> String {
         switch dustInfo.grade {
             case .worst: return "매우 나쁨"
             case .bad: return "나쁨"
