@@ -129,7 +129,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="미세먼지" image="cloud.fill" id="q8a-42-lxV"/>
                     <connections>
+                        <outlet property="densityLabel" destination="nUn-5W-iQl" id="g9h-Ou-CcY"/>
+                        <outlet property="gradeLabel" destination="yVr-Lz-DAZ" id="Sm6-RJ-XHI"/>
+                        <outlet property="instrumentLabel" destination="1LP-nm-tjF" id="C7R-bG-uY5"/>
+                        <outlet property="statusView" destination="Ksa-Nm-Pok" id="9Ox-P6-x4W"/>
                         <outlet property="tableView" destination="1nm-Gm-FE0" id="X0R-V4-6ee"/>
+                        <outlet property="timeLabel" destination="UAC-ok-wun" id="nnu-ci-pci"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
