@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38218D2A2431D4080005C2B7 /* DustStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38218D292431D4080005C2B7 /* DustStatusView.swift */; };
 		38829F1D243082110071302E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38829F1C243082110071302E /* AppDelegate.swift */; };
 		38829F1F243082110071302E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38829F1E243082110071302E /* SceneDelegate.swift */; };
 		38829F21243082110071302E /* DustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38829F20243082110071302E /* DustViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38218D292431D4080005C2B7 /* DustStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStatusView.swift; sourceTree = "<group>"; };
 		38829F19243082110071302E /* DustApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DustApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38829F1C243082110071302E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38829F1E243082110071302E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38218D262431D3D30005C2B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				38218D2B2431D40C0005C2B7 /* Dust */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		38218D272431D3DB0005C2B7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				38829F20243082110071302E /* DustViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		38218D282431D3E30005C2B7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		38218D2B2431D40C0005C2B7 /* Dust */ = {
+			isa = PBXGroup;
+			children = (
+				38218D292431D4080005C2B7 /* DustStatusView.swift */,
+			);
+			path = Dust;
+			sourceTree = "<group>";
+		};
 		38829F10243082110071302E = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +89,11 @@
 		38829F1B243082110071302E /* DustApp */ = {
 			isa = PBXGroup;
 			children = (
+				38218D272431D3DB0005C2B7 /* ViewControllers */,
+				38218D282431D3E30005C2B7 /* Models */,
+				38218D262431D3D30005C2B7 /* Views */,
 				38829F1C243082110071302E /* AppDelegate.swift */,
 				38829F1E243082110071302E /* SceneDelegate.swift */,
-				38829F20243082110071302E /* DustViewController.swift */,
 				38829F22243082110071302E /* Main.storyboard */,
 				38829F25243082150071302E /* Assets.xcassets */,
 				38829F27243082150071302E /* LaunchScreen.storyboard */,
@@ -140,6 +175,7 @@
 			files = (
 				38829F21243082110071302E /* DustViewController.swift in Sources */,
 				38829F1D243082110071302E /* AppDelegate.swift in Sources */,
+				38218D2A2431D4080005C2B7 /* DustStatusView.swift in Sources */,
 				38829F1F243082110071302E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
