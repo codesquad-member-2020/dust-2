@@ -11,6 +11,31 @@ import UIKit
 class DustInfoCell: UITableViewCell {
     
     static let identifier = "DustInfo"
+    
+    @IBOutlet weak var densityBar: UIView!
+    @IBOutlet weak var densityLabel: UILabel!
+    
+    var dustInfo: DustInfo = DustInfo(density: 0) {
+        didSet { updateView() }
+    }
+    
+    private func updateDensityBar() {
+        let density = dustInfo.density > 200 ? 200 : dustInfo.density
+        let ratio: CGFloat = CGFloat(density) / 200
+        let densityBarWidth = contentView.frame.width * ratio
+        densityBar.widthAnchor.constraint(equalToConstant: densityBarWidth).isActive = true
+        densityBar.backgroundColor = UIColor(cgColor: dustInfo.grade.color())
+        updateDensityLabel(densityBarWidth: densityBarWidth)
+    }
+    
+    private func updateDensityLabel(densityBarWidth: CGFloat) {
+        densityLabel.text = String(dustInfo.density)
+        densityLabel.textColor = densityBarWidth > densityLabel.frame.maxX ? .white : .darkGray
+    }
+    
+    private func updateView() {
+        updateDensityBar()
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

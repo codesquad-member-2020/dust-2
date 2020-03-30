@@ -26,28 +26,32 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqj-TT-PW7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="264" height="43.5"/>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" priority="750" constant="264" id="XjF-TT-9vp"/>
+                                                    </constraints>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="57" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ER-67-JX5">
                                                     <rect key="frame" x="381.5" y="13.5" width="16.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWe-Cw-Jhi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
-                                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" priority="750" constant="240" id="NeY-hT-1hR"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="qWe-Cw-Jhi" secondAttribute="bottom" id="Ojo-AI-X8P"/>
-                                                <constraint firstItem="qWe-Cw-Jhi" firstAttribute="top" secondItem="26X-pg-iQX" secondAttribute="top" id="bD0-OI-AEQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="tqj-TT-PW7" secondAttribute="bottom" id="08B-39-7iV"/>
+                                                <constraint firstItem="tqj-TT-PW7" firstAttribute="top" secondItem="26X-pg-iQX" secondAttribute="top" id="QQQ-hE-br7"/>
+                                                <constraint firstItem="tqj-TT-PW7" firstAttribute="leading" secondItem="26X-pg-iQX" secondAttribute="leading" id="ma5-9Z-B82"/>
                                                 <constraint firstItem="5ER-67-JX5" firstAttribute="centerY" secondItem="26X-pg-iQX" secondAttribute="centerY" id="vcG-AS-B7B"/>
                                                 <constraint firstAttribute="trailing" secondItem="5ER-67-JX5" secondAttribute="trailing" constant="16" id="z8Q-4U-sMZ"/>
-                                                <constraint firstItem="qWe-Cw-Jhi" firstAttribute="leading" secondItem="26X-pg-iQX" secondAttribute="leading" id="zxd-Z3-NrD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="densityBar" destination="tqj-TT-PW7" id="ODG-cj-fOd"/>
+                                            <outlet property="densityLabel" destination="5ER-67-JX5" id="Cgc-eq-fg4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

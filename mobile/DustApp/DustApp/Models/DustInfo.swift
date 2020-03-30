@@ -15,8 +15,20 @@ struct DustInfo: Codable {
         case none
     }
     
-    private(set) var grade: Grade
+    private(set) var grade: Grade = .none
     private(set) var density: Int
-    private(set) var time: Date
-    private(set) var instrument: String
+    private(set) var time: Date = Date()
+    private(set) var instrument: String = "-"
+}
+
+extension DustInfo.Grade {
+    func color() -> CGColor {
+        switch self {
+            case .good: return UIColor(named: "good")!.cgColor
+            case .normal: return UIColor(named: "normal")!.cgColor
+            case .bad: return UIColor(named: "bad")!.cgColor
+            case .worst: return UIColor(named: "worst")!.cgColor
+            case .none: return UIColor.white.cgColor
+        }
+    }
 }
