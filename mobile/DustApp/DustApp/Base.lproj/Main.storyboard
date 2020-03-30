@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="385.5" width="414" height="427.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sYS-oI-sdB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DustInfo" id="sYS-oI-sdB" customClass="DustInfoCell" customModule="DustApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sYS-oI-sdB" id="26X-pg-iQX">
@@ -97,7 +97,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.3730114698" green="0.74517607689999998" blue="0.73333710429999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="yVr-Lz-DAZ" firstAttribute="centerX" secondItem="Ksa-Nm-Pok" secondAttribute="centerX" id="2w4-iM-5lI"/>
                                     <constraint firstItem="ud5-1e-4Yo" firstAttribute="top" secondItem="yVr-Lz-DAZ" secondAttribute="bottom" constant="8" id="7kO-TM-pKu"/>
