@@ -10,6 +10,7 @@ import UIKit
 
 class DustStatusView: UIView {
     
+    var imageView: UIImageView!
     var gradeLabel: UILabel!
     var densityLabel: UILabel!
     var timeLabel: UILabel!
@@ -32,8 +33,18 @@ class DustStatusView: UIView {
         return layer
     }()
     
+    private var gradeImage: UIImage? {
+        didSet {
+            imageView.image = gradeImage
+            imageView.layer.shadowColor = UIColor.darkGray.cgColor
+            imageView.layer.shadowOffset = .init(width: 0.1, height: 0.1)
+            imageView.layer.shadowOpacity = 0.7
+        }
+    }
+    
     var dustInfo = DustInfo(grade: .normal, density: -1, time: Date(), instrument: "-") {
         didSet {
+            gradeImage = dustInfo.grade.gradeImage()
             densityLabel.text = "\(dustInfo.density)𝜇g/m³"
             gradeLabel.text = dustInfo.grade.gradeWord()
             instrumentLabel.text = "\(dustInfo.instrument) 측정 기준"

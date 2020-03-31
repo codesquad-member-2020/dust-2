@@ -12,6 +12,7 @@ class DustViewController: UIViewController {
     
     @IBOutlet weak var statusView: DustStatusView!
     
+    @IBOutlet weak var gradeImageView: UIImageView!
     @IBOutlet weak var gradeLabel: UILabel!
     @IBOutlet weak var densityLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -35,6 +36,7 @@ class DustViewController: UIViewController {
     }
     
     private func setupStatusView() {
+        statusView.imageView = gradeImageView
         statusView.gradeLabel = gradeLabel
         statusView.densityLabel = densityLabel
         statusView.timeLabel = timeLabel

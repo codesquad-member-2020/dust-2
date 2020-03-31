@@ -41,4 +41,14 @@ extension DustInfo.Grade {
             case .none: return "-"
         }
     }
+    
+    func gradeImage() -> UIImage? {
+        switch self {
+            case .good: return UIImage(named: "icon-good")
+            case .normal: return UIImage(named: "icon-normal")
+            case .bad: return UIImage(named: "icon-bad")
+            case .worst: return UIImage(named: "icon-worst")
+            case .none: return nil
+        }
+    }
 }
