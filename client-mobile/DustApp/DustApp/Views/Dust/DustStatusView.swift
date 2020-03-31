@@ -16,6 +16,8 @@ class DustStatusView: UIView {
     var timeLabel: UILabel!
     var instrumentLabel: UILabel!
     
+    var index: Int = 0
+    
     private var gradientColor: CGColor = UIColor(named: "systemWhite")!.cgColor {
         didSet {
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
