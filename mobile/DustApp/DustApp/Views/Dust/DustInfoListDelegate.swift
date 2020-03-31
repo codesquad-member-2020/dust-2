@@ -10,7 +10,9 @@ import UIKit
 
 class DustInfoListDelegate: NSObject, UITableViewDelegate {
     
+    private let cellHeight: CGFloat = 36
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return cellHeight
     }
 }
