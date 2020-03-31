@@ -16,7 +16,7 @@ class DustStatusView: UIView {
     var timeLabel: UILabel!
     var instrumentLabel: UILabel!
     
-    var index: Int = 0
+    var index: Int = -1
     
     private var gradientColor: CGColor = UIColor(named: "systemWhite")!.cgColor {
         didSet {
