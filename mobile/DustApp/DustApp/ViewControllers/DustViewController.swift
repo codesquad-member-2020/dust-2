@@ -26,16 +26,16 @@ class DustViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupStatusView()
-        setupTableView()
+        configureStatusView()
+        configureTableView()
     }
     
-    private func setupTableView() {
+    private func configureTableView() {
         tableView.delegate = dustInfoListDelegate
         tableView.dataSource = dustInfoListDatasource
     }
     
-    private func setupStatusView() {
+    private func configureStatusView() {
         statusView.imageView = gradeImageView
         statusView.gradeLabel = gradeLabel
         statusView.densityLabel = densityLabel
