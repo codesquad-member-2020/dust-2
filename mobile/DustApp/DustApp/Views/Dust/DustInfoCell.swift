@@ -14,6 +14,7 @@ class DustInfoCell: UITableViewCell {
     
     @IBOutlet weak var densityBar: UIView!
     @IBOutlet weak var densityLabel: UILabel!
+    @IBOutlet weak var densityBarWidthConstraint: NSLayoutConstraint!
     
     private let maxDensity: Int = 200
     
@@ -22,7 +23,10 @@ class DustInfoCell: UITableViewCell {
     }
     
     private func updateDensityBar(to densityBarWidth: CGFloat) {
-        densityBar.widthAnchor.constraint(equalToConstant: densityBarWidth).isActive = true
+        densityBarWidthConstraint.constant = densityBarWidth
+        UIView.animate(withDuration: 1.5, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.densityBar.layoutIfNeeded()
+        })
         densityBar.backgroundColor = UIColor(cgColor: dustInfo.grade.color())
     }
     
@@ -41,5 +45,18 @@ class DustInfoCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        densityBar.setNeedsLayout()
+        densityBarWidthConstraint.constant = 0
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.densityBar.layoutIfNeeded()
+        })
+    }
+    
+    override func prepareForReuse() {
+        densityBar.setNeedsLayout()
+        densityBarWidthConstraint.constant = 0
+        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.densityBar.layoutIfNeeded()
+        })
     }
 }

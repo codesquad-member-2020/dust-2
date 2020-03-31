@@ -50,6 +50,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="densityBar" destination="tqj-TT-PW7" id="qDd-4I-jzF"/>
+                                            <outlet property="densityBarWidthConstraint" destination="XjF-TT-9vp" id="raA-o1-lcj"/>
                                             <outlet property="densityLabel" destination="5ER-67-JX5" id="Cgc-eq-fg4"/>
                                         </connections>
                                     </tableViewCell>
