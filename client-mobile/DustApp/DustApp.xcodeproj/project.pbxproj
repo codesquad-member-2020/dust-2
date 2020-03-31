@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38218D2A2431D4080005C2B7 /* DustStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38218D292431D4080005C2B7 /* DustStatusView.swift */; };
 		38829F1D243082110071302E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38829F1C243082110071302E /* AppDelegate.swift */; };
 		38829F1F243082110071302E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38829F1E243082110071302E /* SceneDelegate.swift */; };
-		38829F21243082110071302E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38829F20243082110071302E /* ViewController.swift */; };
+		38829F21243082110071302E /* DustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38829F20243082110071302E /* DustViewController.swift */; };
 		38829F24243082110071302E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38829F22243082110071302E /* Main.storyboard */; };
 		38829F26243082150071302E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38829F25243082150071302E /* Assets.xcassets */; };
 		38829F29243082150071302E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38829F27243082150071302E /* LaunchScreen.storyboard */; };
+		38E084CD2431D87000E848DC /* DustInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E084CC2431D87000E848DC /* DustInfo.swift */; };
+		38E084D12432173F00E848DC /* DustInfoListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E084D02432173F00E848DC /* DustInfoListDelegate.swift */; };
+		38E084D32432186D00E848DC /* DustInfoListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E084D22432186D00E848DC /* DustInfoListDataSource.swift */; };
+		38E084D5243218B900E848DC /* DustInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E084D4243218B900E848DC /* DustInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38218D292431D4080005C2B7 /* DustStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStatusView.swift; sourceTree = "<group>"; };
 		38829F19243082110071302E /* DustApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DustApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38829F1C243082110071302E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38829F1E243082110071302E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		38829F20243082110071302E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		38829F20243082110071302E /* DustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustViewController.swift; sourceTree = "<group>"; };
 		38829F23243082110071302E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38829F25243082150071302E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38829F28243082150071302E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38829F2A243082150071302E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38E084CC2431D87000E848DC /* DustInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfo.swift; sourceTree = "<group>"; };
+		38E084D02432173F00E848DC /* DustInfoListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoListDelegate.swift; sourceTree = "<group>"; };
+		38E084D22432186D00E848DC /* DustInfoListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoListDataSource.swift; sourceTree = "<group>"; };
+		38E084D4243218B900E848DC /* DustInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +47,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38218D262431D3D30005C2B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				38218D2B2431D40C0005C2B7 /* Dust */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		38218D272431D3DB0005C2B7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				38829F20243082110071302E /* DustViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		38218D282431D3E30005C2B7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				389F3E222432EC7C002B35F6 /* Dust */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		38218D2B2431D40C0005C2B7 /* Dust */ = {
+			isa = PBXGroup;
+			children = (
+				38218D292431D4080005C2B7 /* DustStatusView.swift */,
+				38E084D02432173F00E848DC /* DustInfoListDelegate.swift */,
+				38E084D4243218B900E848DC /* DustInfoCell.swift */,
+			);
+			path = Dust;
+			sourceTree = "<group>";
+		};
 		38829F10243082110071302E = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +100,26 @@
 		38829F1B243082110071302E /* DustApp */ = {
 			isa = PBXGroup;
 			children = (
+				38218D272431D3DB0005C2B7 /* ViewControllers */,
+				38218D282431D3E30005C2B7 /* Models */,
+				38218D262431D3D30005C2B7 /* Views */,
 				38829F1C243082110071302E /* AppDelegate.swift */,
 				38829F1E243082110071302E /* SceneDelegate.swift */,
-				38829F20243082110071302E /* ViewController.swift */,
 				38829F22243082110071302E /* Main.storyboard */,
 				38829F25243082150071302E /* Assets.xcassets */,
 				38829F27243082150071302E /* LaunchScreen.storyboard */,
 				38829F2A243082150071302E /* Info.plist */,
 			);
 			path = DustApp;
+			sourceTree = "<group>";
+		};
+		389F3E222432EC7C002B35F6 /* Dust */ = {
+			isa = PBXGroup;
+			children = (
+				38E084CC2431D87000E848DC /* DustInfo.swift */,
+				38E084D22432186D00E848DC /* DustInfoListDataSource.swift */,
+			);
+			path = Dust;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38829F21243082110071302E /* ViewController.swift in Sources */,
+				38829F21243082110071302E /* DustViewController.swift in Sources */,
+				38E084D5243218B900E848DC /* DustInfoCell.swift in Sources */,
+				38E084CD2431D87000E848DC /* DustInfo.swift in Sources */,
 				38829F1D243082110071302E /* AppDelegate.swift in Sources */,
+				38218D2A2431D4080005C2B7 /* DustStatusView.swift in Sources */,
+				38E084D12432173F00E848DC /* DustInfoListDelegate.swift in Sources */,
 				38829F1F243082110071302E /* SceneDelegate.swift in Sources */,
+				38E084D32432186D00E848DC /* DustInfoListDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
