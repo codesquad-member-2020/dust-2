@@ -15,13 +15,15 @@ class DustInfoCell: UITableViewCell {
     @IBOutlet weak var densityBar: UIView!
     @IBOutlet weak var densityLabel: UILabel!
     
+    private let maxDensity: Int = 200
+    
     var dustInfo: DustInfo = DustInfo(density: 0) {
         didSet { updateView() }
     }
     
     private func updateDensityBar() {
-        let density = dustInfo.density > 200 ? 200 : dustInfo.density
-        let ratio: CGFloat = CGFloat(density) / 200
+        let density = dustInfo.density > maxDensity ? maxDensity : dustInfo.density
+        let ratio: CGFloat = CGFloat(density) / CGFloat(maxDensity)
         let densityBarWidth = contentView.frame.width * ratio
         densityBar.widthAnchor.constraint(equalToConstant: densityBarWidth).isActive = true
         densityBar.backgroundColor = UIColor(cgColor: dustInfo.grade.color())
