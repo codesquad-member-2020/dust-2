@@ -34,7 +34,7 @@ class DustInfoCell: UITableViewCell {
         densityLabel.textColor = densityBarWidth < densityLabel.frame.maxX ? densityLabelColor : coveredDensityLabelColor
     }
     
-    private func updateCell(with dustInfo: DustInfo) {
+    func updateCell(with dustInfo: DustInfo) {
         let density = dustInfo.density > maxDensity ? maxDensity : dustInfo.density
         let ratio: CGFloat = CGFloat(density) / CGFloat(maxDensity)
         let densityBarWidth = contentView.frame.width * ratio
