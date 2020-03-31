@@ -44,7 +44,7 @@ class DustStatusView: UIView {
         }
     }
     
-    var dustInfo = DustInfo(grade: .normal, density: -1, time: Date(), instrument: "-") {
+    var dustInfo: DustInfo! {
         didSet {
             gradeImage = dustInfo.grade.gradeImage()
             densityLabel.text = "\(dustInfo.density)𝜇g/m³"
