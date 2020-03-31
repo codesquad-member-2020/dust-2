@@ -17,17 +17,13 @@ class DustInfoCell: UITableViewCell {
     
     private let maxDensity: Int = 200
     
-    var dustInfo: DustInfo = DustInfo(density: 0) {
+    var dustInfo: DustInfo! {
         didSet { updateView() }
     }
     
-    private func updateDensityBar() {
-        let density = dustInfo.density > maxDensity ? maxDensity : dustInfo.density
-        let ratio: CGFloat = CGFloat(density) / CGFloat(maxDensity)
-        let densityBarWidth = contentView.frame.width * ratio
+    private func updateDensityBar(to densityBarWidth: CGFloat) {
         densityBar.widthAnchor.constraint(equalToConstant: densityBarWidth).isActive = true
         densityBar.backgroundColor = UIColor(cgColor: dustInfo.grade.color())
-        updateDensityLabel(densityBarWidth: densityBarWidth)
     }
     
     private func updateDensityLabel(densityBarWidth: CGFloat) {
@@ -36,7 +32,11 @@ class DustInfoCell: UITableViewCell {
     }
     
     private func updateView() {
-        updateDensityBar()
+        let density = dustInfo.density > maxDensity ? maxDensity : dustInfo.density
+        let ratio: CGFloat = CGFloat(density) / CGFloat(maxDensity)
+        let densityBarWidth = contentView.frame.width * ratio
+        updateDensityBar(to: densityBarWidth)
+        updateDensityLabel(densityBarWidth: densityBarWidth)
     }
 
     override func awakeFromNib() {
