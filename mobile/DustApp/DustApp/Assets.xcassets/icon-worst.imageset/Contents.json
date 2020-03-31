@@ -6,47 +6,19 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ]
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "icons8-gas-mask-100 (1).png",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "icons8-gas-mask-100.png",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
+      "filename" : "002-lego.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ]
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }
