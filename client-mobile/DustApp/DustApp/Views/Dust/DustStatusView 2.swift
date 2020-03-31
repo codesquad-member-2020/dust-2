@@ -16,11 +16,9 @@ class DustStatusView: UIView {
     var timeLabel: UILabel!
     var instrumentLabel: UILabel!
     
-    var index: Int = 0
-    
     private var gradientColor: CGColor = UIColor(named: "systemWhite")!.cgColor {
         didSet {
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 let color = self.gradientColor
                 self.gradientLayer.colors = [color, color, color, UIColor(named: "systemWhite")!.cgColor]
             })
@@ -44,7 +42,7 @@ class DustStatusView: UIView {
         }
     }
     
-    var dustInfo: DustInfo! {
+    var dustInfo = DustInfo(grade: .normal, density: -1, time: Date(), instrument: "-") {
         didSet {
             gradeImage = dustInfo.grade.gradeImage()
             densityLabel.text = "\(dustInfo.density)𝜇g/m³"

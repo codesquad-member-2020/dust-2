@@ -23,11 +23,26 @@ class DustViewController: UIViewController {
     let dustInfoListDelegate = DustInfoListDelegate()
     let dustInfoListDatasource = DustInfoListDataSource()
     
+    let locationManager = LocationManager()
+    let locationManagerDelegate = LocationManagerDelegate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureStatusView()
         configureTableView()
+        configureLocation()
+    }
+    
+    private func configureLocation() {
+        locationManager.delegate = locationManagerDelegate
+        locationManager.requestLocation()
+        locationManagerDelegate.didUpdateLocation = { location, error in
+            if error != nil {
+                self.locationManager.requestLocation()
+                return
+            }
+        }
     }
     
     private func configureTableView() {
