@@ -20,7 +20,7 @@ class DustStatusView: UIView {
     
     private var gradientColor: CGColor = UIColor(named: "systemWhite")!.cgColor {
         didSet {
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
                 let color = self.gradientColor
                 self.gradientLayer.colors = [color, color, color, UIColor(named: "systemWhite")!.cgColor]
             })
