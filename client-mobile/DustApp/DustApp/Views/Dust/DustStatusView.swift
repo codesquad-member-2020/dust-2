@@ -44,14 +44,14 @@ class DustStatusView: UIView {
         }
     }
     
-    var dustInfo: DustInfo! {
-        didSet {
-            gradeImage = dustInfo.grade.gradeImage()
-            densityLabel.text = "\(dustInfo.density)𝜇g/m³"
-            gradeLabel.text = dustInfo.grade.gradeWord()
-            instrumentLabel.text = "\(dustInfo.instrument) 측정 기준"
-            gradientColor = dustInfo.grade.color()
-        }
+    func updateStatusView(with dustInfo: DustInfo, at index: Int) {
+        guard self.index != index else { return }
+        let grade = dustInfo.grade
+        gradientColor = grade.color()
+        gradeImage = grade.gradeImage()
+        densityLabel.text = "\(dustInfo.density)𝜇g/m³"
+        gradeLabel.text = grade.gradeWord()
+        instrumentLabel.text = "\(dustInfo.instrument) 측정 기준"
     }
     
     private func updateGradientLayerColor(with color: CGColor) {
