@@ -12,10 +12,9 @@ struct DustInfo: Codable {
 
     enum Grade: Int, Codable {
         case good = 1, normal, bad, worst
-        case none
     }
     
-    private(set) var grade: Grade = .none
+    private(set) var grade: Grade
     private(set) var density: Int
     private(set) var time: Date = Date()
     private(set) var instrument: String = "-"
@@ -28,17 +27,15 @@ extension DustInfo.Grade {
             case .normal: return UIColor(named: "normal")!.cgColor
             case .bad: return UIColor(named: "bad")!.cgColor
             case .worst: return UIColor(named: "worst")!.cgColor
-            case .none: return UIColor.white.cgColor
         }
     }
     
     func gradeWord() -> String {
         switch self {
-            case .worst: return "매우 나쁨"
-            case .bad: return "나쁨"
-            case .normal: return "보통"
             case .good: return "좋음"
-            case .none: return "-"
+            case .normal: return "보통"
+            case .bad: return "나쁨"
+            case .worst: return "매우 나쁨"
         }
     }
     
@@ -48,7 +45,6 @@ extension DustInfo.Grade {
             case .normal: return UIImage(named: "icon-normal")
             case .bad: return UIImage(named: "icon-bad")
             case .worst: return UIImage(named: "icon-worst")
-            case .none: return nil
         }
     }
 }
