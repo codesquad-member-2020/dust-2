@@ -9,6 +9,7 @@
 import UIKit
 
 class DustInfoListDataSource: NSObject, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 40
     }
