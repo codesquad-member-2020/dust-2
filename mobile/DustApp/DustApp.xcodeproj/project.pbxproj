@@ -66,8 +66,7 @@
 		38218D282431D3E30005C2B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				38E084CC2431D87000E848DC /* DustInfo.swift */,
-				38E084D22432186D00E848DC /* DustInfoListDataSource.swift */,
+				389F3E222432EC7C002B35F6 /* Dust */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -112,6 +111,15 @@
 				38829F2A243082150071302E /* Info.plist */,
 			);
 			path = DustApp;
+			sourceTree = "<group>";
+		};
+		389F3E222432EC7C002B35F6 /* Dust */ = {
+			isa = PBXGroup;
+			children = (
+				38E084CC2431D87000E848DC /* DustInfo.swift */,
+				38E084D22432186D00E848DC /* DustInfoListDataSource.swift */,
+			);
+			path = Dust;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -43,4 +43,3 @@ class DustViewController: UIViewController {
         statusView.instrumentLabel = instrumentLabel
     }
 }
-
