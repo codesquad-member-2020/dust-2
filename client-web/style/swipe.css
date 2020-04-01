@@ -12,6 +12,7 @@
 }
 
 #dust-forecast {
+  background-color: red;
   display: none;
   position: absolute;
   top: 0;
