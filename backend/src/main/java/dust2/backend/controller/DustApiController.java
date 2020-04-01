@@ -3,12 +3,20 @@ package dust2.backend.controller;
 import dust2.backend.domain.Dust;
 import dust2.backend.domain.Forecast;
 import dust2.backend.domain.LocationDust;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,21 +24,35 @@ import java.util.List;
 public class DustApiController {
     private static final Logger log = LoggerFactory.getLogger(DustApiController.class);
 
+    @Value("${api.serviceKey}")
+    private String serviceKey;
+
     @GetMapping("/forecast")
-    public Forecast showForecast() {
-        List<String> images = new ArrayList<>();
-        String informOverall = "○ [미세먼지] 원활한 대기 확산으로 대기 상태가 대체로 '보통' 수준일 것으로 예상됨.";
-        String informGrade = "서울 : 보통,제주 : 좋음,전남 : 좋음,전북 : 보통,광주 : 보통,경남 : 좋음,경북 : 좋음,울산 : 좋음,대구 : 좋음,부산 : 좋음,충남 : 보통,충북 : 보통,세종 : 보통,대전 : 보통,영동 : 좋음,영서 : 보통,경기남부 : 보통,경기북부 : 보통,인천 : 보통";
+    public Forecast showForecast() throws URISyntaxException {
+        String apiURL =
+                "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMinuDustFrcstDspth?searchDate=";
+        String serviceKeyParam = "&ServiceKey=";
+        String returnJson = "&_returnType=json";
 
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138877");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138878");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138879");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138880");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138881");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138882");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138841");
+        LocalDateTime localDateTime = LocalDateTime.now();
+        int currentTime = LocalDateTime.now().getHour();
+        //자정에서 오전 다섯시 사이에는 전 날의 날짜로 조회한다.
+        if(currentTime<5) {
+            localDateTime = localDateTime.minusDays(1);
+        }
+        String today = localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-        return new Forecast(informOverall, informGrade, images);
+        URI publicApiRequestUrl = new URI(apiURL + today
+            + serviceKeyParam + serviceKey + returnJson);
+        RestTemplate restTemplate = new RestTemplate();
+        String response = restTemplate.getForObject(publicApiRequestUrl, String.class);
+
+        JSONObject forecastObject = new JSONObject(response);
+        JSONArray jsonArray = (JSONArray)forecastObject.get("list");
+        JSONObject todayForecast = jsonArray.getJSONObject(0);
+
+        log.info("todayForecast :" + todayForecast);
+        return new Forecast(todayForecast);
     }
 
     @GetMapping("/location")
@@ -67,6 +89,5 @@ public class DustApiController {
 
         return new LocationDust(location, dusts);
     }
-
 
 }
