@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/dust-chart/index.js",
+  entry: "./src/dust-display/index.js",
   output: {
     path: path.resolve(__dirname, "dist/"),
     filename: "dust_bundle.js"
