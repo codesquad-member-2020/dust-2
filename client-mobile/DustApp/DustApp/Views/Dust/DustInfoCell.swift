@@ -16,31 +16,30 @@ class DustInfoCell: UITableViewCell {
     @IBOutlet weak var densityLabel: UILabel!
     @IBOutlet weak var densityBarWidthConstraint: NSLayoutConstraint!
     
+    private let densityLabelColor = UIColor(named: "densityLabelColor")!
+    private let coveredDensityLabelColor = UIColor(named: "densityLabelColor-covered")!
+    
     private let maxDensity: Int = 200
     
-    var dustInfo: DustInfo! {
-        didSet { updateView() }
-    }
-    
-    private func updateDensityBar(to densityBarWidth: CGFloat) {
+    private func updateDensityBar(to densityBarWidth: CGFloat, grade: DustInfo.Grade) {
         densityBarWidthConstraint.constant = densityBarWidth
         UIView.animate(withDuration: 1.5, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.densityBar.layoutIfNeeded()
         })
-        densityBar.backgroundColor = UIColor(cgColor: dustInfo.grade.color())
+        densityBar.backgroundColor = UIColor(cgColor: grade.color())
     }
     
-    private func updateDensityLabel(densityBarWidth: CGFloat) {
-        densityLabel.text = String(dustInfo.density)
-        densityLabel.textColor = densityBarWidth > densityLabel.frame.maxX ? .white : .darkGray
+    private func updateDensityLabel(density: Int, densityBarWidth: CGFloat) {
+        densityLabel.text = String(density)
+        densityLabel.textColor = densityBarWidth < densityLabel.frame.maxX ? densityLabelColor : coveredDensityLabelColor
     }
     
-    private func updateView() {
+    func updateCell(with dustInfo: DustInfo) {
         let density = dustInfo.density > maxDensity ? maxDensity : dustInfo.density
         let ratio: CGFloat = CGFloat(density) / CGFloat(maxDensity)
         let densityBarWidth = contentView.frame.width * ratio
-        updateDensityBar(to: densityBarWidth)
-        updateDensityLabel(densityBarWidth: densityBarWidth)
+        updateDensityBar(to: densityBarWidth, grade: dustInfo.grade)
+        updateDensityLabel(density: dustInfo.density, densityBarWidth: densityBarWidth)
     }
 
     override func awakeFromNib() {
