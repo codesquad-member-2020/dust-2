@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>미세먼지 알리미</title>
+    <link rel="stylesheet" type="text/css" href="./display.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="dust-display">
+        <div class="dust-status-display">
+          <div class="header">미세먼지 앱</div>
+          <div class="dust-status-face">
+            <img />
+          </div>
+          <div class="dust-status-text">
+            좋음
+          </div>
+          <div class="dust-status-today">
+            <div class="current-dust">59</div>
+            <div class="current-time">오늘 07:00</div>
+          </div>
+          <div class="dust-observation-station">강남구 측정소 기준</div>
+        </div>
+        <div class="dust-chart">
+          <canvas id="dust-chart"></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="./dist/dust_bundle.js"></script>
+  </body>
+</html>
