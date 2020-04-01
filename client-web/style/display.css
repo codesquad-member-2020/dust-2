@@ -1,6 +1,7 @@
 body {
   box-sizing: border-box;
 }
+
 .dust-status-display {
   display: flex;
   flex-direction: column;
@@ -17,6 +18,7 @@ body {
   font-size: 2rem;
   text-align: center;
 }
+
 .dust-status-face {
   display: flex;
   justify-content: center;
@@ -27,6 +29,7 @@ body {
   font-weight: 900;
   text-align: center;
 }
+
 .dust-status-today {
   display: flex;
   width: 100vw;
@@ -34,11 +37,13 @@ body {
   font-size: 1.2rem;
   font-weight: 400;
 }
+
 .dust-observation-station {
   text-align: center;
   font-size: 0.7rem;
   font-weight: 400;
 }
+
 .dust-chart {
   height: 50vh;
   overflow: scroll;
