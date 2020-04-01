@@ -28,6 +28,6 @@ class NetworkManager: NetworkManagable {
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error { completion(nil, error) }
             completion(data, nil)
-        }
+        }.resume()
     }
 }
