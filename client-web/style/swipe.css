@@ -1,0 +1,22 @@
+#app {
+  position: relative;
+  max-height: 100vh;
+}
+
+#dust-display {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#dust-forecast {
+  background-color: red;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100vw;
+  width: 100vw;
+  height: 100vh;
+}
