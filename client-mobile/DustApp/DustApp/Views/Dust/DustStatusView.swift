@@ -44,6 +44,10 @@ class DustStatusView: UIView {
         }
     }
     
+    func updateStationLabel(with station: Station) {
+        instrumentLabel.text = "\(station.name) 측정소 기준"
+    }
+    
     func updateStatusView(with dustInfo: DustInfo, at index: Int) {
         guard self.index != index else { return }
         let grade = dustInfo.grade
@@ -51,7 +55,6 @@ class DustStatusView: UIView {
         gradeImage = grade.gradeImage()
         densityLabel.text = "\(dustInfo.density)𝜇g/m³"
         gradeLabel.text = grade.gradeWord()
-        instrumentLabel.text = "\(dustInfo.instrument) 측정 기준"
     }
     
     private func updateGradientLayerColor(with color: CGColor) {
