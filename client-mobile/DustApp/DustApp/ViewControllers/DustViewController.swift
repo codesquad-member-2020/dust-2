@@ -16,7 +16,7 @@ class DustViewController: UIViewController {
     @IBOutlet weak var gradeLabel: UILabel!
     @IBOutlet weak var densityLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var instrumentLabel: UILabel!
+    @IBOutlet weak var stationLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -55,6 +55,6 @@ class DustViewController: UIViewController {
         statusView.gradeLabel = gradeLabel
         statusView.densityLabel = densityLabel
         statusView.timeLabel = timeLabel
-        statusView.instrumentLabel = instrumentLabel
+        statusView.stationLabel = stationLabel
     }
 }

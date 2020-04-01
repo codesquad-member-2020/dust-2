@@ -14,7 +14,7 @@ class DustStatusView: UIView {
     var gradeLabel: UILabel!
     var densityLabel: UILabel!
     var timeLabel: UILabel!
-    var instrumentLabel: UILabel!
+    var stationLabel: UILabel!
     
     var index: Int = -1
     
@@ -45,7 +45,7 @@ class DustStatusView: UIView {
     }
     
     func updateStationLabel(with station: Station) {
-        instrumentLabel.text = "\(station.name) 측정소 기준"
+        stationLabel.text = "\(station.name) 측정소 기준"
     }
     
     func updateStatusView(with dustInfo: DustInfo, at index: Int) {
