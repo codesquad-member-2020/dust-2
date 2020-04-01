@@ -16,8 +16,13 @@ struct DustInfo: Codable {
     
     private(set) var grade: Grade
     private(set) var density: Int
-    private(set) var time: Date = Date()
-    private(set) var instrument: String = "-"
+    private(set) var time: String
+    
+    enum CodingKeys: String, CodingKey {
+        case grade = "pm10Grade"
+        case density = "pm10Value"
+        case time = "dataTime"
+    }
 }
 
 extension DustInfo.Grade {
