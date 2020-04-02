@@ -24,4 +24,8 @@ class DustStatusViewModel {
     
     var dustDataRequestObserver: (() -> Void)?
     var dustInfosCount: Int? { dustInfos?.count }
+    
+    func dustInfo(at index: Int) -> DustInfo? {
+        return dustInfos?[index]
+    }
 }
