@@ -21,9 +21,19 @@ class ForecastViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewModelCompletionHandler()
-        configureImageViewIndexHandler()
+        configureImageViewViewModel()
+        configureViewModelHandlers()
         requestForecastImages()
+    }
+    
+    private func configureImageViewViewModel() {
+        imageView.viewModel = viewModel
+    }
+    
+    private func configureViewModelHandlers() {
+        configureViewModelImageDownloadHandler()
+        configureViewModelIndexHandler()
+        configureViewModelPlayingStatusHandler()
     }
     
     private func requestForecastImages() {
@@ -31,7 +41,7 @@ class ForecastViewController: UIViewController {
         activityIndicatorView.startAnimating()
     }
     
-    private func configureViewModelCompletionHandler() {
+    private func configureViewModelImageDownloadHandler() {
         viewModel.downloadImagesCompletion = { (hasDownloaded, images) in
             guard hasDownloaded else { return }
             guard let images = images else { return }
@@ -42,9 +52,17 @@ class ForecastViewController: UIViewController {
         }
     }
     
-    private func configureImageViewIndexHandler() {
-        imageView.indexHasChanged = { index in
-            self.imageSlider.value = index
+    private func configureViewModelIndexHandler() {
+        viewModel.indexHasChanged = { index in
+            self.imageView.image = self.viewModel.image(at: index)
+            self.imageSlider.value = Float(index)
+        }
+    }
+    
+    private func configureViewModelPlayingStatusHandler() {
+        viewModel.playingStatusHasChanged = { isPlaying in
+            self.togglePlayingButton.isPlaying = isPlaying
+            self.imageView.togglePlaying()
         }
     }
     
@@ -56,7 +74,7 @@ class ForecastViewController: UIViewController {
     private func enableViews(with images: [UIImage]) {
         self.enableButton()
         self.enableSlider(images: images)
-        self.imageView.configureImages(images: images)
+        self.imageView.configureImage(image: images.first)
     }
     
     private func enableButton() {
@@ -69,12 +87,11 @@ class ForecastViewController: UIViewController {
     }
     
     @IBAction func togglePlayingForecastTapped(_ sender: Any) {
-        imageView.togglePlaying()
-        togglePlayingButton.isPlaying = !togglePlayingButton.isPlaying
+        viewModel.togglePlaying()
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
         guard viewModel.hasDownloaded else { return }
-        imageView.index = Int(imageSlider.value)
+        viewModel.index = Int(imageSlider.value)
     }
 }
