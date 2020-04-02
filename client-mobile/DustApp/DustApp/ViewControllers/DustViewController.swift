@@ -41,6 +41,19 @@ class DustViewController: UIViewController {
                 self.locationManager.requestLocation()
                 return
             }
+            guard let location = location else { return }
+            self.requestStationData(with: location)
+        }
+    }
+    
+    private func requestStationData(with location: Location) {
+        MockupDustNetworkManager.shared.requestStationData(with: location) { (station, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            guard let station = station else { return }
+            self.viewModel.station = station
         }
     }
     
