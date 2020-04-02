@@ -16,7 +16,7 @@ class DustStatusViewModel {
         }
     }
     
-    var dustInfos: [DustInfo]? = [] {
+    private var dustInfos: [DustInfo]? = [] {
         didSet {
             dustDataRequestObserver?()
         }
