@@ -12,7 +12,7 @@ class TogglePlayingButton: UIButton {
     
     var isPlaying: Bool = false {
         didSet {
-            let image: UIImage? = isPlaying ? UIImage(named: "stop.fill") : UIImage(named: "play.fill")
+            let image: UIImage? = isPlaying ? UIImage(named: "pause.fill") : UIImage(named: "play.fill")
             setImage(image, for: .normal)
         }
     }
