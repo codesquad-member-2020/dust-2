@@ -60,7 +60,12 @@ class DustViewController: UIViewController {
     private func configureTableView() {
         tableView.delegate = dustInfoListDelegate
         tableView.dataSource = dustInfoListDatasource
+        configureDatasourceViewModel()
         configureDustInfoListDelegateScrollHandler()
+    }
+    
+    private func configureDatasourceViewModel() {
+        dustInfoListDatasource.viewModel = viewModel
     }
     
     private func configureDustInfoListDelegateScrollHandler() {
