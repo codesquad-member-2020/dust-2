@@ -27,12 +27,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqj-TT-PW7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="43.5"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqj-TT-PW7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" id="XjF-TT-9vp"/>
-                                                    </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ER-67-JX5">
                                                     <rect key="frame" x="389" y="13.5" width="9" height="17"/>
@@ -42,16 +40,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="tqj-TT-PW7" secondAttribute="bottom" id="08B-39-7iV"/>
-                                                <constraint firstItem="tqj-TT-PW7" firstAttribute="top" secondItem="26X-pg-iQX" secondAttribute="top" id="QQQ-hE-br7"/>
-                                                <constraint firstItem="tqj-TT-PW7" firstAttribute="leading" secondItem="26X-pg-iQX" secondAttribute="leading" id="ma5-9Z-B82"/>
                                                 <constraint firstItem="5ER-67-JX5" firstAttribute="centerY" secondItem="26X-pg-iQX" secondAttribute="centerY" id="vcG-AS-B7B"/>
                                                 <constraint firstAttribute="trailing" secondItem="5ER-67-JX5" secondAttribute="trailing" constant="16" id="z8Q-4U-sMZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="densityBar" destination="tqj-TT-PW7" id="qDd-4I-jzF"/>
-                                            <outlet property="densityBarWidthConstraint" destination="XjF-TT-9vp" id="raA-o1-lcj"/>
                                             <outlet property="densityLabel" destination="5ER-67-JX5" id="Cgc-eq-fg4"/>
                                         </connections>
                                     </tableViewCell>

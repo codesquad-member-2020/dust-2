@@ -14,19 +14,23 @@ class DustInfoCell: UITableViewCell {
     
     @IBOutlet weak var densityBar: UIView!
     @IBOutlet weak var densityLabel: UILabel!
-    @IBOutlet weak var densityBarWidthConstraint: NSLayoutConstraint!
-    
+    private var hasAnimated = false
     private let densityLabelColor = UIColor(named: "densityLabelColor")!
     private let coveredDensityLabelColor = UIColor(named: "densityLabelColor-covered")!
     
     private let maxDensity: Int = 200
     
     private func updateDensityBar(to densityBarWidth: CGFloat, grade: DustInfo.Grade) {
-        densityBarWidthConstraint.constant = densityBarWidth
-        UIView.animate(withDuration: 1.5, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.densityBar.layoutIfNeeded()
-        })
         densityBar.backgroundColor = UIColor(cgColor: grade.color())
+        guard !hasAnimated else {
+            densityBar.frame = .init(x: 0, y: 0, width: densityBarWidth, height: DustInfoListDelegate.cellHeight)
+            return
+        }
+        UIView.animate(withDuration: 1.5, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.densityBar.frame = .init(x: 0, y: 0, width: densityBarWidth, height: DustInfoListDelegate.cellHeight)
+        }, completion: { _ in
+            self.hasAnimated = true
+        })
     }
     
     private func updateDensityLabel(density: Int, densityBarWidth: CGFloat) {
@@ -44,18 +48,10 @@ class DustInfoCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        densityBar.setNeedsLayout()
-        densityBarWidthConstraint.constant = 0
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.densityBar.layoutIfNeeded()
-        })
+        densityBar.frame = .init(x: 0, y: 0, width: 0, height: DustInfoListDelegate.cellHeight)
     }
     
     override func prepareForReuse() {
-        densityBar.setNeedsLayout()
-        densityBarWidthConstraint.constant = 0
-        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.densityBar.layoutIfNeeded()
-        })
+        densityBar.frame = .init(x: 0, y: 0, width: 0, height: DustInfoListDelegate.cellHeight)
     }
 }
