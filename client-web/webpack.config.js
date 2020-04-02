@@ -1,10 +1,10 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/dust-forecast/index.js",
+  entry: "./src/dust-display/index.js",
   output: {
     path: path.resolve(__dirname, "dist/"),
-    filename: "forecast_bundle.js"
+    filename: "display_bundle.js"
   },
   module: {
     rules: [

@@ -3,7 +3,8 @@ import { getDisplayData } from "../fetch/";
 import makeChart from "./chart/chart";
 import options from "./chart/chartOption";
 import { dustStatusDisplay, dustChart } from "./view/";
-import css from "./style/display.css";
+import display from "./style/display.css";
+import reset from "./style/reset.css";
 
 export let chart;
 let dustData;
