@@ -45,7 +45,9 @@ class DustStatusView: UIView {
     }
     
     func updateStationLabel(with station: Station) {
-        stationLabel.text = "\(station.name) 측정소 기준"
+        let attributedText = NSMutableAttributedString(string: station.name, attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .heavy)])
+        attributedText.append(NSAttributedString(string: " 측정소 기준", attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .regular)]))
+        stationLabel.attributedText = attributedText
     }
     
     func updateStatusView(with dustInfo: DustInfo, at index: Int) {
