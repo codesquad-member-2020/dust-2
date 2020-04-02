@@ -82,6 +82,8 @@ class DustViewController: UIViewController {
     private func configureDustInfoListDelegateScrollHandler() {
         dustInfoListDelegate.didScroll = {
             guard let index = self.tableView.indexPathsForVisibleRows?.first?.item else { return }
+            let dustInfo = self.viewModel.dustInfo(at: index)
+            self.statusView.updateStatusView(with: dustInfo, at: index)
         }
     }
     
