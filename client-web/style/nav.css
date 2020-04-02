@@ -1,0 +1,13 @@
+.dust-nav {
+  display: flex;
+}
+
+.dust-tab {
+  border: 1px solid #000;
+  height: 10vh;
+  width: 50vw;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

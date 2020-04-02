@@ -6,6 +6,8 @@
 
 > 기획서
 
+[**구글 스프레드 시트**](https://docs.google.com/spreadsheets/d/1BTmeG2f5LyCf106FYkBIfaoFl4QfOKf-StPW2wJHG_I/edit#gid=0)
+
 <br>
 
 > 팀원
@@ -37,6 +39,8 @@
 - 이슈기반으로 깃허브 프로젝트를 진행한다.
 - 마일스톤을 만들어 진행한다.
 - [깃플로우를 사용한다.](https://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html)
+- 디렉토리명은 다음과 같다.
+  - server, client-mobile, client-web
 
 <br>
 
@@ -47,8 +51,16 @@
 
 <br>
 
+> Wiki
+
+- [API 기록소](https://github.com/codesquad-member-2020/dust-2/wiki/API-%EA%B8%B0%EB%A1%9D%EC%86%8C)
+- [디자인 가이드 문서](https://github.com/codesquad-member-2020/dust-2/wiki/%EB%94%94%EC%9E%90%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C-%EB%AC%B8%EC%84%9C)
+
+<br>
+
 > 회고
 
+- 수요일에 중간회고를 진행한다.
 - 회고는 금요일에 진행한다.
 
 <br>

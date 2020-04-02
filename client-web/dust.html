@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>미세먼지 알리미</title>
+    <link rel="stylesheet" type="text/css" href="./style/display.css" />
+    <link rel="stylesheet" type="text/css" href="./style/forecast.css" />
+    <link rel="stylesheet" type="text/css" href="./style/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./style/swipe.css" />
+    <link rel="stylesheet" type="text/css" href="./style/nav.css" />
+  </head>
+  <body>
+    <nav class="dust-nav">
+      <li class="display-tab dust-tab">미세먼지</li>
+      <li class="forecast-tab dust-tab">예보</li>
+    </nav>
+    <div id="app">
+      <div id="dust-display">
+        <div class="dust-status-display">
+          <div class="header">미세먼지 앱</div>
+          <div class="dust-status-face">
+            <img />
+          </div>
+          <div class="dust-status-text">
+            좋음
+          </div>
+          <div class="dust-status-today">
+            <div class="current-dust">59</div>
+            <div class="current-time">오늘 07:00</div>
+          </div>
+          <div class="dust-observation-station">강남구 측정소 기준</div>
+        </div>
+        <div class="dust-chart">
+          <canvas id="dust-chart"></canvas>
+        </div>
+      </div>
+      <div id="dust-forecast">
+        <div class="forecast-header">미세먼지 예보</div>
+        <div class="img-set">
+          <img
+            class="_image"
+            src="https://search.pstatic.net/common?quality=75&amp;direct=true&amp;src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20200329_78%2F1585469292761Tsmsz_PNG%2Fimage.png"
+            style="display: block;"
+          />
+          <img
+            class="_image"
+            src="https://search.pstatic.net/common?quality=75&amp;direct=true&amp;src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20200329_95%2F1585469293046Csc0c_PNG%2Fimage.png"
+            style="display: none;"
+          />
+          <img
+            class="_image"
+            src="https://search.pstatic.net/common?quality=75&amp;direct=true&amp;src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20200329_197%2F1585469293339WIW8s_PNG%2Fimage.png"
+            style="display: none;"
+          />
+          <img
+            class="_image"
+            src="https://search.pstatic.net/common?quality=75&amp;direct=true&amp;src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20200329_96%2F1585469293583jUiAm_PNG%2Fimage.png"
+            style="display: none;"
+          />
+          <img
+            class="_image"
+            src="https://search.pstatic.net/common?quality=75&amp;direct=true&amp;src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20200329_24%2F158546929390936vbA_PNG%2Fimage.png"
+            style="display: none;"
+          />
+          <img
+            class="_image"
+            src="https://search.pstatic.net/common?quality=75&amp;direct=true&amp;src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20200329_161%2F1585469294189OALn7_PNG%2Fimage.png"
+            style="display: none;"
+          />
+          <img
+            class="_image"
+            src="https://search.pstatic.net/common?quality=75&amp;direct=true&amp;src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20200329_171%2F1585469294438p2zw7_PNG%2Fimage.png"
+            style="display: none;"
+          />
+          <img
+            class="_image"
+            src="https://search.pstatic.net/common?quality=75&amp;direct=true&amp;src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20200329_158%2F1585469294699286jz_PNG%2Fimage.png"
+            style="display: none;"
+          />
+        </div>
+        <div class="controller">
+          <div class="play">
+            <span class="material-icons">
+              play_arrow
+            </span>
+          </div>
+          <div class="pause">
+            <span class="material-icons">
+              pause
+            </span>
+          </div>
+          <div class="stop">
+            <span class="material-icons">
+              stop
+            </span>
+          </div>
+        </div>
+        <div class="gauge">
+          <div class="bar"></div>
+          <button class="blue-dot"></button>
+        </div>
+      </div>
+    </div>
+    <script src="./dist/dust_bundle.js"></script>
+    <script src="./src/dust-display/scroll.js"></script>
+    <script src="./src/dust-forecast/index.js"></script>
+    <script src="./src/swipe/change.js"></script>
+  </body>
+</html>
