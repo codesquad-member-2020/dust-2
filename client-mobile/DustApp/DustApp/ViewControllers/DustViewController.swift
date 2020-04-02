@@ -29,6 +29,7 @@ class DustViewController: UIViewController {
         
         configureStatusViewElements()
         configureTableView()
+        configureViewModelObserver()
         configureLocation()
         
         locationManager.requestLocation()
@@ -43,6 +44,12 @@ class DustViewController: UIViewController {
             }
             guard let location = location else { return }
             self.requestStationData(with: location)
+        }
+    }
+    
+    private func configureViewModelObserver() {
+        viewModel.dustDataRequestObserver = {
+            self.tableView.reloadData()
         }
     }
     
