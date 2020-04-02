@@ -26,6 +26,8 @@ class DustViewController: UIViewController {
     let locationManager = LocationManager()
     let locationManagerDelegate = LocationManagerDelegate()
     
+    let viewModel = DustStatusViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
