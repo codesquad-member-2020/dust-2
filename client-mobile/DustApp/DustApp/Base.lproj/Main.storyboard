@@ -194,13 +194,21 @@
                                     <action selector="togglePlayingForecastTapped:" destination="jbD-eN-iTx" eventType="touchUpInside" id="niv-Iz-be4"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="EcI-8O-Iwm">
+                                <rect key="frame" x="186.5" y="327.5" width="41" height="41.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EcI-8O-Iwm" secondAttribute="height" multiplier="1:1" id="pbe-jg-ntk"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ima-ZN-35w" firstAttribute="leading" secondItem="pCz-eT-E6a" secondAttribute="leading" constant="16" id="8Ut-TL-CDJ"/>
                             <constraint firstItem="F4x-ya-LG4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BZa-FS-Mny" secondAttribute="bottom" priority="750" constant="8" id="CEt-xo-S5C"/>
                             <constraint firstItem="pCz-eT-E6a" firstAttribute="trailing" secondItem="ima-ZN-35w" secondAttribute="trailing" constant="16" id="Clu-7P-PWg"/>
+                            <constraint firstItem="EcI-8O-Iwm" firstAttribute="centerX" secondItem="aIS-Bo-Gn7" secondAttribute="centerX" id="Dsx-NL-BMH"/>
                             <constraint firstItem="ima-ZN-35w" firstAttribute="top" secondItem="aIS-Bo-Gn7" secondAttribute="bottom" constant="8" id="FNG-dJ-vpQ"/>
+                            <constraint firstItem="EcI-8O-Iwm" firstAttribute="centerY" secondItem="aIS-Bo-Gn7" secondAttribute="centerY" id="FjZ-Zs-a71"/>
                             <constraint firstItem="aIS-Bo-Gn7" firstAttribute="top" secondItem="C8k-Hk-HXz" secondAttribute="bottom" constant="16" id="Knh-Wm-Ma6"/>
                             <constraint firstItem="F4x-ya-LG4" firstAttribute="leading" secondItem="pCz-eT-E6a" secondAttribute="leading" constant="16" id="TVU-5V-IJ5"/>
                             <constraint firstItem="C8k-Hk-HXz" firstAttribute="top" secondItem="pCz-eT-E6a" secondAttribute="top" constant="8" id="VEf-e2-GM0"/>
@@ -208,6 +216,7 @@
                             <constraint firstItem="aIS-Bo-Gn7" firstAttribute="height" secondItem="KL0-Yv-yVE" secondAttribute="height" multiplier="0.55" id="iRx-xJ-ycV"/>
                             <constraint firstItem="6R0-vb-j47" firstAttribute="leading" secondItem="F4x-ya-LG4" secondAttribute="trailing" constant="16" id="j6L-gG-zPj"/>
                             <constraint firstItem="C8k-Hk-HXz" firstAttribute="centerX" secondItem="KL0-Yv-yVE" secondAttribute="centerX" id="jyz-gs-03q"/>
+                            <constraint firstItem="EcI-8O-Iwm" firstAttribute="width" secondItem="aIS-Bo-Gn7" secondAttribute="width" multiplier="0.1" id="pmr-r4-Ev4"/>
                             <constraint firstItem="pCz-eT-E6a" firstAttribute="trailing" secondItem="6R0-vb-j47" secondAttribute="trailing" constant="16" id="shI-iY-Sqa"/>
                             <constraint firstItem="aIS-Bo-Gn7" firstAttribute="leading" secondItem="pCz-eT-E6a" secondAttribute="leading" id="t47-uD-0YP"/>
                             <constraint firstAttribute="trailing" secondItem="BZa-FS-Mny" secondAttribute="trailing" constant="16" id="uTn-1Y-Ysl"/>
@@ -222,6 +231,7 @@
                     <navigationItem key="navigationItem" id="hoj-Ed-BYz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="EcI-8O-Iwm" id="QQ7-X5-SOF"/>
                         <outlet property="forecastLabel" destination="ima-ZN-35w" id="wzu-hL-60O"/>
                         <outlet property="imageSlider" destination="6R0-vb-j47" id="L1M-VL-aLe"/>
                         <outlet property="imageView" destination="aIS-Bo-Gn7" id="2pc-Rt-j5V"/>

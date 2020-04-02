@@ -15,30 +15,49 @@ class ForecastViewController: UIViewController {
     @IBOutlet weak var regionalGradeLabel: UILabel!
     @IBOutlet weak var togglePlayingButton: TogglePlayingButton!
     @IBOutlet weak var imageSlider: ForecastImageSlider!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     let viewModel = ForecastViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewModelCompletionHandler()
+        
+        requestForecastImages()
+    }
+    
+    private func requestForecastImages() {
         viewModel.requestImages()
+        activityIndicatorView.startAnimating()
     }
     
     private func configureViewModelCompletionHandler() {
         viewModel.downloadImagesCompletion = { (hasDownloaded, images) in
             guard hasDownloaded else { return }
             guard let images = images else { return }
-            self.EnableButton()
-            self.EnableSlider(images: images)
-            self.imageView.configureImages(images: images)
+            DispatchQueue.main.async {
+                self.disableActivityIndicatorView()
+                self.enableViews(with: images)
+            }
         }
     }
     
-    private func EnableButton() {
+    private func disableActivityIndicatorView() {
+        activityIndicatorView.stopAnimating()
+        activityIndicatorView.isHidden = true
+    }
+    
+    private func enableViews(with images: [UIImage]) {
+        self.enableButton()
+        self.enableSlider(images: images)
+        self.imageView.configureImages(images: images)
+    }
+    
+    private func enableButton() {
         self.togglePlayingButton.isEnabled = true
     }
     
-    private func EnableSlider(images: [UIImage]) {
+    private func enableSlider(images: [UIImage]) {
         self.imageSlider.isEnabled = true
         self.imageSlider.configureMaximumValue(count: images.count - 1)
     }
