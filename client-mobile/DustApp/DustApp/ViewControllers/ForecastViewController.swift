@@ -22,7 +22,7 @@ class ForecastViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewModelCompletionHandler()
-        
+        configureImageViewIndexHandler()
         requestForecastImages()
     }
     
@@ -39,6 +39,12 @@ class ForecastViewController: UIViewController {
                 self.disableActivityIndicatorView()
                 self.enableViews(with: images)
             }
+        }
+    }
+    
+    private func configureImageViewIndexHandler() {
+        imageView.indexHasChanged = { index in
+            self.imageSlider.value = index
         }
     }
     
@@ -63,7 +69,7 @@ class ForecastViewController: UIViewController {
     }
     
     @IBAction func togglePlayingForecastTapped(_ sender: Any) {
-        imageView.toggleAnimating()
+        imageView.togglePlaying()
         togglePlayingButton.isPlaying = !togglePlayingButton.isPlaying
     }
     
