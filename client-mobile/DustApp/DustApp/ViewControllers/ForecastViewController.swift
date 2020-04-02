@@ -13,6 +13,7 @@ class ForecastViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var forecastLabel: UILabel!
     @IBOutlet weak var regionalGradeLabel: UILabel!
+    @IBOutlet weak var imageSlider: UISlider!
     
     let images = [#imageLiteral(resourceName: "icon-bad"), #imageLiteral(resourceName: "icon-worst"), #imageLiteral(resourceName: "icon-normal"), #imageLiteral(resourceName: "icon-good")]
     
@@ -20,6 +21,10 @@ class ForecastViewController: UIViewController {
         super.viewDidLoad()
         
         imageView.image = images.first
+        
+        imageSlider.minimumValue = 0
+        imageSlider.maximumValue = Float(images.count - 1)
+        imageSlider.value = 0
     }
     
     @IBAction func togglePlayingForecastTapped(_ sender: Any) {
@@ -31,4 +36,10 @@ class ForecastViewController: UIViewController {
             imageView.startAnimating()
         }
     }
+    
+    @IBAction func imageSliderChanged(_ sender: Any) {
+        let index = Int(imageSlider.value)
+        imageView.image = images[index]
+    }
+    
 }

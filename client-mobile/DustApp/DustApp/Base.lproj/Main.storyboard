@@ -178,6 +178,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6R0-vb-j47">
                                 <rect key="frame" x="74" y="760" width="326" height="31"/>
+                                <connections>
+                                    <action selector="imageSliderChanged:" destination="jbD-eN-iTx" eventType="valueChanged" id="RCO-VL-4KF"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4x-ya-LG4">
                                 <rect key="frame" x="16" y="753" width="44" height="44"/>
@@ -220,6 +223,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="forecastLabel" destination="ima-ZN-35w" id="wzu-hL-60O"/>
+                        <outlet property="imageSlider" destination="6R0-vb-j47" id="L1M-VL-aLe"/>
                         <outlet property="imageView" destination="aIS-Bo-Gn7" id="2pc-Rt-j5V"/>
                         <outlet property="regionalGradeLabel" destination="BZa-FS-Mny" id="Img-Um-pWh"/>
                     </connections>
