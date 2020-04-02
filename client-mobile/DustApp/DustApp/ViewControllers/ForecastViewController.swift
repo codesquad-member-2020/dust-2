@@ -26,12 +26,21 @@ class ForecastViewController: UIViewController {
     
     private func configureViewModelCompletionHandler() {
         viewModel.downloadImagesCompletion = { (hasDownloaded, images) in
+            guard hasDownloaded else { return }
             guard let images = images else { return }
-            self.togglePlayingButton.isEnabled = hasDownloaded
-            self.imageSlider.isEnabled = hasDownloaded
-            self.imageView.images = images
-            self.imageSlider.configureMaximumValue(count: images.count - 1)
+            self.EnableButton()
+            self.EnableSlider(images: images)
+            self.imageView.configureImages(images: images)
         }
+    }
+    
+    private func EnableButton() {
+        self.togglePlayingButton.isEnabled = true
+    }
+    
+    private func EnableSlider(images: [UIImage]) {
+        self.imageSlider.isEnabled = true
+        self.imageSlider.configureMaximumValue(count: images.count - 1)
     }
     
     @IBAction func togglePlayingForecastTapped(_ sender: Any) {

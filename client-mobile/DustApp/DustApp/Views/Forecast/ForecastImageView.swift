@@ -10,7 +10,7 @@ import UIKit
 
 class ForecastImageView: UIImageView {
 
-    var images: [UIImage]? {
+    private var images: [UIImage]? {
         didSet {
             animationImages = images
             animationDuration = 0.25 * Double(images?.count ?? 0)
@@ -22,6 +22,10 @@ class ForecastImageView: UIImageView {
         didSet {
             image = images?[index]
         }
+    }
+    
+    func configureImages(images: [UIImage]) {
+        self.images = images
     }
     
     func toggleAnimating() {
