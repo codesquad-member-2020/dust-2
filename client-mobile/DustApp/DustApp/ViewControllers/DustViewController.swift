@@ -11,21 +11,17 @@ import UIKit
 class DustViewController: UIViewController {
     
     @IBOutlet weak var statusView: DustStatusView!
-    
     @IBOutlet weak var gradeImageView: UIImageView!
     @IBOutlet weak var gradeLabel: UILabel!
     @IBOutlet weak var densityLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var stationLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
     
     let dustInfoListDelegate = DustInfoListDelegate()
     let dustInfoListDatasource = DustInfoListDataSource()
-    
     let locationManager = LocationManager()
     let locationManagerDelegate = LocationManagerDelegate()
-    
     let viewModel = DustStatusViewModel()
     
     override func viewDidLoad() {
