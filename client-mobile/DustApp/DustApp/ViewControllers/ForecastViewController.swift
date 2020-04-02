@@ -15,41 +15,83 @@ class ForecastViewController: UIViewController {
     @IBOutlet weak var regionalGradeLabel: UILabel!
     @IBOutlet weak var togglePlayingButton: TogglePlayingButton!
     @IBOutlet weak var imageSlider: ForecastImageSlider!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     let viewModel = ForecastViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewModelCompletionHandler()
-        viewModel.requestImages()
+        configureImageViewViewModel()
+        configureViewModelHandlers()
+        requestForecastImages()
     }
     
-    private func configureViewModelCompletionHandler() {
+    private func configureImageViewViewModel() {
+        imageView.viewModel = viewModel
+    }
+    
+    private func configureViewModelHandlers() {
+        configureViewModelImageDownloadHandler()
+        configureViewModelIndexHandler()
+        configureViewModelPlayingStatusHandler()
+    }
+    
+    private func requestForecastImages() {
+        viewModel.requestImages()
+        activityIndicatorView.startAnimating()
+    }
+    
+    private func configureViewModelImageDownloadHandler() {
         viewModel.downloadImagesCompletion = { (hasDownloaded, images) in
             guard hasDownloaded else { return }
             guard let images = images else { return }
-            self.EnableButton()
-            self.EnableSlider(images: images)
-            self.imageView.configureImages(images: images)
+            DispatchQueue.main.async {
+                self.disableActivityIndicatorView()
+                self.enableViews(with: images)
+            }
         }
     }
     
-    private func EnableButton() {
+    private func configureViewModelIndexHandler() {
+        viewModel.indexHasChanged = { index in
+            self.imageView.image = self.viewModel.image(at: index)
+            self.imageSlider.value = Float(index)
+        }
+    }
+    
+    private func configureViewModelPlayingStatusHandler() {
+        viewModel.playingStatusHasChanged = { isPlaying in
+            self.togglePlayingButton.isPlaying = isPlaying
+            self.imageView.togglePlaying()
+        }
+    }
+    
+    private func disableActivityIndicatorView() {
+        activityIndicatorView.stopAnimating()
+        activityIndicatorView.isHidden = true
+    }
+    
+    private func enableViews(with images: [UIImage]) {
+        self.enableButton()
+        self.enableSlider(images: images)
+        self.imageView.configureImage(image: images.first)
+    }
+    
+    private func enableButton() {
         self.togglePlayingButton.isEnabled = true
     }
     
-    private func EnableSlider(images: [UIImage]) {
+    private func enableSlider(images: [UIImage]) {
         self.imageSlider.isEnabled = true
         self.imageSlider.configureMaximumValue(count: images.count - 1)
     }
     
     @IBAction func togglePlayingForecastTapped(_ sender: Any) {
-        imageView.toggleAnimating()
-        togglePlayingButton.isPlaying = !togglePlayingButton.isPlaying
+        viewModel.togglePlaying()
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
         guard viewModel.hasDownloaded else { return }
-        imageView.index = Int(imageSlider.value)
+        viewModel.index = Int(imageSlider.value)
     }
 }

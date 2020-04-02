@@ -9,30 +9,36 @@
 import UIKit
 
 class ForecastImageView: UIImageView {
-
-    private var images: [UIImage]? {
-        didSet {
-            animationImages = images
-            animationDuration = 0.25 * Double(images?.count ?? 0)
-            image = images?.first
-        }
+    
+    var viewModel: ForecastViewModel?
+    private let durationTime: Double = 1
+    var isPlaying: Bool = false
+    
+    func configureImage(image: UIImage?) {
+        self.image = image
     }
     
-    var index: Int = 0 {
-        didSet {
-            image = images?[index]
-        }
-    }
-    
-    func configureImages(images: [UIImage]) {
-        self.images = images
-    }
-    
-    func toggleAnimating() {
-        if isAnimating {
-            stopAnimating()
+    func togglePlaying() {
+        if isPlaying {
+            pause()
         } else {
-            startAnimating()
+            play()
         }
+    }
+    
+    private func play() {
+        isPlaying = true
+        UIView.transition(with: self, duration: durationTime, options: .transitionCrossDissolve, animations: {
+            self.viewModel?.index += 1
+            self.image = self.viewModel?.image(at: self.viewModel!.index)
+        }, completion: { _ in
+            if self.isPlaying {
+                self.play()
+            }
+        })
+    }
+    
+    private func pause() {
+        isPlaying = false
     }
 }
