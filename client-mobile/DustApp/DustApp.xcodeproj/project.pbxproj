@@ -23,6 +23,7 @@
 		38E084D12432173F00E848DC /* DustInfoListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E084D02432173F00E848DC /* DustInfoListDelegate.swift */; };
 		38E084D32432186D00E848DC /* DustInfoListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E084D22432186D00E848DC /* DustInfoListDataSource.swift */; };
 		38E084D5243218B900E848DC /* DustInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E084D4243218B900E848DC /* DustInfoCell.swift */; };
+		38E8A1B62434D1870092B321 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8A1B52434D1870092B321 /* ForecastViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		38E084D02432173F00E848DC /* DustInfoListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoListDelegate.swift; sourceTree = "<group>"; };
 		38E084D22432186D00E848DC /* DustInfoListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoListDataSource.swift; sourceTree = "<group>"; };
 		38E084D4243218B900E848DC /* DustInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoCell.swift; sourceTree = "<group>"; };
+		38E8A1B52434D1870092B321 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				38829F20243082110071302E /* DustViewController.swift */,
+				38E8A1B52434D1870092B321 /* ForecastViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38829F21243082110071302E /* DustViewController.swift in Sources */,
+				38E8A1B62434D1870092B321 /* ForecastViewController.swift in Sources */,
 				3804748E243317E3003EEFCC /* Station.swift in Sources */,
 				38047490243317F7003EEFCC /* Location.swift in Sources */,
 				385D9BD32434888E00BFC4B4 /* NetworkManager.swift in Sources */,

@@ -146,7 +146,7 @@
         <!--예보-->
         <scene sceneID="H7x-sU-7qJ">
             <objects>
-                <viewController id="jbD-eN-iTx" sceneMemberID="viewController">
+                <viewController id="jbD-eN-iTx" customClass="ForecastViewController" customModule="DustApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KL0-Yv-yVE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,6 +187,9 @@
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="play.fill"/>
+                                <connections>
+                                    <action selector="togglePlayingForecastTapped:" destination="jbD-eN-iTx" eventType="touchUpInside" id="niv-Iz-be4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -215,6 +218,11 @@
                     <tabBarItem key="tabBarItem" title="예보" image="clock.fill" id="OZV-8P-OjP"/>
                     <navigationItem key="navigationItem" id="hoj-Ed-BYz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="forecastLabel" destination="ima-ZN-35w" id="wzu-hL-60O"/>
+                        <outlet property="imageView" destination="aIS-Bo-Gn7" id="2pc-Rt-j5V"/>
+                        <outlet property="regionalGradeLabel" destination="BZa-FS-Mny" id="Img-Um-pWh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dae-u9-JK1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
