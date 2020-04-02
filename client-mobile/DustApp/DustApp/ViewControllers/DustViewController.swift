@@ -31,7 +31,7 @@ class DustViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureStatusView()
+        configureStatusViewElements()
         configureTableView()
         configureLocation()
     }
@@ -59,7 +59,7 @@ class DustViewController: UIViewController {
         }
     }
     
-    private func configureStatusView() {
+    private func configureStatusViewElements() {
         statusView.imageView = gradeImageView
         statusView.gradeLabel = gradeLabel
         statusView.densityLabel = densityLabel
