@@ -29,5 +29,7 @@ class TogglePlayingButton: UIButton {
     
     private func configure() {
         isEnabled = false
+        layer.borderColor = UIColor(named: "systemBlack")?.cgColor
+        layer.borderWidth = 1
     }
 }
