@@ -18,13 +18,23 @@ class MockupDustNetworkManager: NetworkManagable {
       "dusts": [
         {
           "dataTime": "2020-03-30 24:00",
-          "pm10Value": 35,
-          "pm10Grade": 2
+          "pm10Value": 10,
+          "pm10Grade": 1
         },
         {
           "dataTime": "2020-03-30 23:00",
           "pm10Value": 44,
           "pm10Grade": 2
+        },
+        {
+        "dataTime": "2020-03-30 20:00",
+        "pm10Value": 89,
+        "pm10Grade": 3
+        },
+        {
+        "dataTime": "2020-03-30 19:00",
+        "pm10Value": 167,
+        "pm10Grade": 4
         },
         {
           "dataTime": "2020-03-30 22:00",
@@ -33,8 +43,8 @@ class MockupDustNetworkManager: NetworkManagable {
         },
         {
           "dataTime": "2020-03-30 21:00",
-          "pm10Value": 42,
-          "pm10Grade": 2
+          "pm10Value": 3,
+          "pm10Grade": 1
         },
         {
           "dataTime": "2020-03-30 20:00",
