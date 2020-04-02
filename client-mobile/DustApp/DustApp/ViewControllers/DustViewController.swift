@@ -34,11 +34,12 @@ class DustViewController: UIViewController {
         configureStatusViewElements()
         configureTableView()
         configureLocation()
+        
+        locationManager.requestLocation()
     }
     
     private func configureLocation() {
         locationManager.delegate = locationManagerDelegate
-        locationManager.requestLocation()
         locationManagerDelegate.didUpdateLocation = { location, error in
             if error != nil {
                 self.locationManager.requestLocation()
