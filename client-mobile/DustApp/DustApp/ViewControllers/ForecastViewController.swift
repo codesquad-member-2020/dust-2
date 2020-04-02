@@ -10,36 +10,37 @@ import UIKit
 
 class ForecastViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: ForecastImageView!
     @IBOutlet weak var forecastLabel: UILabel!
     @IBOutlet weak var regionalGradeLabel: UILabel!
-    @IBOutlet weak var imageSlider: UISlider!
+    @IBOutlet weak var togglePlayingButton: TogglePlayingButton!
+    @IBOutlet weak var imageSlider: ForecastImageSlider!
     
-    let images = [#imageLiteral(resourceName: "icon-bad"), #imageLiteral(resourceName: "icon-worst"), #imageLiteral(resourceName: "icon-normal"), #imageLiteral(resourceName: "icon-good")]
+    let viewModel = ForecastViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        imageView.image = images.first
-        
-        imageSlider.minimumValue = 0
-        imageSlider.maximumValue = Float(images.count - 1)
-        imageSlider.value = 0
+        configureViewModelCompletionHandler()
+        viewModel.requestImages()
     }
     
-    @IBAction func togglePlayingForecastTapped(_ sender: Any) {
-        if imageView.isAnimating {
-            imageView.stopAnimating()
-        } else {
-            imageView.animationImages = images
-            imageView.animationDuration = 0.25 * Double(images.count)
-            imageView.startAnimating()
+    private func configureViewModelCompletionHandler() {
+        viewModel.downloadImagesCompletion = { (hasDownloaded, images) in
+            guard let images = images else { return }
+            self.togglePlayingButton.isEnabled = hasDownloaded
+            self.imageSlider.isEnabled = hasDownloaded
+            self.imageView.images = images
+            self.imageSlider.configureMaximumValue(count: images.count - 1)
         }
     }
     
-    @IBAction func imageSliderChanged(_ sender: Any) {
-        let index = Int(imageSlider.value)
-        imageView.image = images[index]
+    @IBAction func togglePlayingForecastTapped(_ sender: Any) {
+        imageView.toggleAnimating()
+        togglePlayingButton.isPlaying = !togglePlayingButton.isPlaying
     }
     
+    @IBAction func sliderValueChanged(_ sender: Any) {
+        guard viewModel.hasDownloaded else { return }
+        imageView.index = Int(imageSlider.value)
+    }
 }
