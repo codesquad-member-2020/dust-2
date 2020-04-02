@@ -10,17 +10,17 @@ import UIKit
 
 class ForecastImageView: UIImageView {
 
-    private var images: [UIImage]? {
+    private var images: [UIImage] = [] {
         didSet {
             animationImages = images
-            animationDuration = 0.25 * Double(images?.count ?? 0)
-            image = images?.first
+            animationDuration = 0.25 * Double(images.count)
+            image = images.first
         }
     }
     
     var index: Int = 0 {
         didSet {
-            image = images?[index]
+            image = images[index]
         }
     }
     
