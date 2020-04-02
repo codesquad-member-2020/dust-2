@@ -11,9 +11,3 @@ export const getDisplayData = async () => {
   const result = await response.json();
   return result;
 };
-
-export const getCurrentLocation = options => {
-  return new Promise((res, rej) =>
-    navigator.geolocation.getCurrentPosition(res, rej, options)
-  );
-};
