@@ -15,6 +15,7 @@ class DustStatusView: UIView {
     var densityLabel: UILabel!
     var timeLabel: UILabel!
     var stationLabel: UILabel!
+    let statusLoadingView = StatusLoadingView()
     
     var index: Int = -1
     
@@ -45,7 +46,10 @@ class DustStatusView: UIView {
     }
     
     func updateStationLabel(with station: Station) {
-        stationLabel.text = "\(station.name) 측정소 기준"
+        statusLoadingView.dismissFromStatusView()
+        let attributedText = NSMutableAttributedString(string: station.name, attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .heavy)])
+        attributedText.append(NSAttributedString(string: " 측정소 기준", attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .regular)]))
+        stationLabel.attributedText = attributedText
     }
     
     func updateStatusView(with dustInfo: DustInfo, at index: Int) {
@@ -73,5 +77,7 @@ class DustStatusView: UIView {
     
     private func configure() {
         layer.insertSublayer(gradientLayer, at: 0)
+        addSubview(statusLoadingView)
+        statusLoadingView.frame = frame
     }
 }
