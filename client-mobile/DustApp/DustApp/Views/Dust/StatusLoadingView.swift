@@ -35,10 +35,14 @@ class StatusLoadingView: UIView {
     private func configure() {
         backgroundColor = UIColor(named: "systemWhite")
         addSubview(activityIndicatorView)
+        configureActivityIndicatorViewConstraints()
+        activityIndicatorView.startAnimating()
+    }
+    
+    private func configureActivityIndicatorViewConstraints() {
         activityIndicatorView.widthAnchor.constraint(equalToConstant: 44).isActive = true
         activityIndicatorView.heightAnchor.constraint(equalToConstant: 44).isActive = true
         activityIndicatorView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         activityIndicatorView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        activityIndicatorView.startAnimating()
     }
 }
