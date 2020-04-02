@@ -1,27 +1,29 @@
 package dust2.backend.domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Forecast {
-    private String informCause;
+    private String informOverall;
     private String informGrade;
     List<String> images = new ArrayList<>();
 
-    public Forecast(JSONObject todayForecast) {
-        this.informCause = todayForecast.getString("informCause");
-        this.informGrade = todayForecast.getString("informGrade");
-        this.images.add(todayForecast.getString("imageUrl1"));
-        this.images.add(todayForecast.getString("imageUrl2"));
-        this.images.add(todayForecast.getString("imageUrl3"));
-        this.images.add(todayForecast.getString("imageUrl4"));
-        this.images.add(todayForecast.getString("imageUrl5"));
-        this.images.add(todayForecast.getString("imageUrl6"));
-        this.images.add(todayForecast.getString("imageUrl7"));
+    public Forecast(JsonNode todayForecast, List<String> images) {
+        this.informOverall = todayForecast.get("informOverall").asText();
+        this.informGrade = todayForecast.get("informGrade").asText();
+        this.images = images;
     }
 
+    @Override
+    public String toString() {
+        return "Forecast{" +
+                "informOverall='" + informOverall + '\'' +
+                ", informGrade='" + informGrade + '\'' +
+                ", images=" + images +
+                '}';
+    }
 }
