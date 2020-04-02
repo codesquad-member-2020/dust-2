@@ -35,6 +35,18 @@ class DustViewController: UIViewController {
         locationManager.requestLocation()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reanimateTableView()
+    }
+    
+    private func reanimateTableView() {
+        for cell in tableView.visibleCells {
+            guard let cell = cell as? DustInfoCell else { return }
+            cell.initializeAnimation()
+        }
+    }
+    
     private func configureLocation() {
         locationManager.delegate = locationManagerDelegate
         locationManagerDelegate.didUpdateLocation = { location, error in

@@ -19,6 +19,7 @@ class DustInfoCell: UITableViewCell {
     private let coveredDensityLabelColor = UIColor(named: "densityLabelColor-covered")!
     
     private let maxDensity: Int = 200
+    private var densityBarWidth: CGFloat = 0
     
     private func updateDensityBar(to densityBarWidth: CGFloat, grade: DustInfo.Grade) {
         densityBar.backgroundColor = UIColor(cgColor: grade.color())
@@ -41,9 +42,19 @@ class DustInfoCell: UITableViewCell {
     func updateCell(with dustInfo: DustInfo) {
         let density = dustInfo.density > maxDensity ? maxDensity : dustInfo.density
         let ratio: CGFloat = CGFloat(density) / CGFloat(maxDensity)
-        let densityBarWidth = contentView.frame.width * ratio
+        self.densityBarWidth = contentView.frame.width * ratio
         updateDensityBar(to: densityBarWidth, grade: dustInfo.grade)
         updateDensityLabel(density: dustInfo.density, densityBarWidth: densityBarWidth)
+    }
+    
+    func initializeAnimation() {
+        hasAnimated = false
+        densityBar.frame = .init(x: 0, y: 0, width: 0, height: DustInfoListDelegate.cellHeight)
+        UIView.animate(withDuration: 1.5, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.densityBar.frame = .init(x: 0, y: 0, width: self.densityBarWidth, height: DustInfoListDelegate.cellHeight)
+        }, completion: { _ in
+            self.hasAnimated = true
+        })
     }
 
     override func awakeFromNib() {
