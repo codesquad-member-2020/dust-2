@@ -203,6 +203,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="EcI-8O-Iwm" secondAttribute="height" multiplier="1:1" id="pbe-jg-ntk"/>
                                 </constraints>
+                                <color key="color" name="systemBlack"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
