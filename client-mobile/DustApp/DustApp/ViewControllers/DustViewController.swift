@@ -48,6 +48,13 @@ class DustViewController: UIViewController {
     private func configureTableView() {
         tableView.delegate = dustInfoListDelegate
         tableView.dataSource = dustInfoListDatasource
+        configureDustInfoListDelegateScrollHandler()
+    }
+    
+    private func configureDustInfoListDelegateScrollHandler() {
+        dustInfoListDelegate.didScroll = {
+            guard let index = self.tableView.indexPathsForVisibleRows?.first?.item else { return }
+        }
     }
     
     private func configureStatusView() {

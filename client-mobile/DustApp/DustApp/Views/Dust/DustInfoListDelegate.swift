@@ -12,7 +12,13 @@ class DustInfoListDelegate: NSObject, UITableViewDelegate {
     
     private let cellHeight: CGFloat = 36
     
+    var didScroll: (() -> Void)?
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeight
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        didScroll?()
     }
 }
