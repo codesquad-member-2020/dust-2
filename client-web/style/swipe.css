@@ -9,14 +9,15 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 1;
 }
 
 #dust-forecast {
-  background-color: red;
-  display: none;
+  visibility: hidden;
   position: absolute;
   top: 0;
-  left: 100vw;
+  left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 0;
 }

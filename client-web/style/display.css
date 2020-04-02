@@ -6,7 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 50vh;
+  height: 40vh;
   background: linear-gradient(
     180deg,
     rgba(61, 172, 247, 1),
