@@ -12,9 +12,9 @@ protocol NetworkManagable {
     func requestData(with item: Any?, completion: @escaping (Data?, Error?) -> Void)
 }
 
-class NetworkManager: NetworkManagable {
+class DustNetworkManager: NetworkManagable {
     
-    static let shared = NetworkManager()
+    static let shared = DustNetworkManager()
     
     let dustInfoURL = "http://ec2-15-165-109-219.ap-northeast-2.compute.amazonaws.com:8080"
     let stationPath: String = "location"
