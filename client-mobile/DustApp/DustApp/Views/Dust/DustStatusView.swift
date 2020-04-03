@@ -54,6 +54,7 @@ class DustStatusView: UIView {
     
     func updateDustInfo(with dustInfo: DustInfo?, at index: Int) {
         guard self.index != index else { return }
+        self.index = index
         guard let dustInfo = dustInfo else { return }
         let grade = dustInfo.grade
         gradientColor = grade.color()
