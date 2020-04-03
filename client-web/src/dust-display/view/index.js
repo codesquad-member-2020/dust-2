@@ -9,8 +9,8 @@ const header = () => {
   return div({ class: "header" })(["미세먼지 앱"]);
 };
 
-const statusFace = ({ pm10Grade }) => {
-  const src = emojis[GRADE_TO_ENG[`${pm10Grade}`]];
+const statusFace = ({ pm10Grade1h }) => {
+  const src = emojis[GRADE_TO_ENG[`${pm10Grade1h}`]];
   return div({ class: "dust-status-face" })([
     img({
       src: `./dist/${src}`
@@ -18,8 +18,8 @@ const statusFace = ({ pm10Grade }) => {
   ]);
 };
 
-const statusText = ({ pm10Grade }) => {
-  return div({ class: "dust-status-text" })([GRADE[`${pm10Grade}`]]);
+const statusText = ({ pm10Grade1h }) => {
+  return div({ class: "dust-status-text" })([GRADE[`${pm10Grade1h}`]]);
 };
 
 const todayStatus = ({ dataTime, pm10Value }) => {
@@ -34,10 +34,10 @@ const dustObservation = ({ stationName }) => {
 };
 
 export const dustStatusDisplay = (station, targetDust) => {
-  const { pm10Grade } = targetDust;
+  const { pm10Grade1h } = targetDust;
   return div({
     class: "dust-status-display",
-    style: `background: ${COLOR_FOR_BACKGROUND[GRADE_TO_ENG[pm10Grade]]}`
+    style: `background: ${COLOR_FOR_BACKGROUND[GRADE_TO_ENG[pm10Grade1h]]}`
   })([
     header(),
     statusFace(targetDust),
