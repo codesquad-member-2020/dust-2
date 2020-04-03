@@ -9,11 +9,11 @@
 import Foundation
 
 struct Station: Codable {
-    var name: String
+    var stationInfo: StationInfo
     var dustInfos: [DustInfo]
     
     enum CodingKeys: String, CodingKey {
-        case name = "location"
-        case dustInfos = "dusts"
+        case stationInfo = "station"
+        case dustInfos = "airQualityInfos"
     }
 }
