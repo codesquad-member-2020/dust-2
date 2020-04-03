@@ -29,11 +29,11 @@ const todayStatus = ({ dataTime, pm10Value }) => {
   ]);
 };
 
-const dustObservation = location => {
-  return div({ class: "dust-observation-station" })([`${location} 측정소`]);
+const dustObservation = ({ stationName }) => {
+  return div({ class: "dust-observation-station" })([`${stationName} 측정소`]);
 };
 
-export const dustStatusDisplay = (location, targetDust) => {
+export const dustStatusDisplay = (station, targetDust) => {
   const { pm10Grade } = targetDust;
   return div({
     class: "dust-status-display",
@@ -43,7 +43,7 @@ export const dustStatusDisplay = (location, targetDust) => {
     statusFace(targetDust),
     statusText(targetDust),
     todayStatus(targetDust),
-    dustObservation(location)
+    dustObservation(station)
   ]);
 };
 
