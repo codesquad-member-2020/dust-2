@@ -10,7 +10,7 @@ import java.util.List;
 public class Forecast {
     private String informOverall;
     private String informGrade;
-    List<String> images = new ArrayList<>();
+    private List<String> images;
 
     public Forecast(JsonNode todayForecast, List<String> images) {
         this.informOverall = todayForecast.get("informOverall").asText();
