@@ -4,6 +4,12 @@
 
 <br>
 
+> 배포주소
+
+[배포링크](http://ec2-15-165-109-219.ap-northeast-2.compute.amazonaws.com)
+
+<br>
+
 > 기획서
 
 [**구글 스프레드 시트**](https://docs.google.com/spreadsheets/d/1BTmeG2f5LyCf106FYkBIfaoFl4QfOKf-StPW2wJHG_I/edit#gid=0)
