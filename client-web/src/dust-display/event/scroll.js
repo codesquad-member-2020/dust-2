@@ -1,4 +1,4 @@
-import { chart } from "../index";
+import { chart, dustData } from "../index";
 import { LABEL_UNIT } from "../../../constants/chart";
 import { COLOR_FOR_BACKGROUND } from "../../../constants/colors";
 import { GRADE_TO_ENG, GRADE } from "../../../constants/grade";
@@ -10,21 +10,8 @@ const calculateDistanceFromTop = target => {
     : 0;
 };
 
-const getDustRank = dustMeasure => {
-  if (dustMeasure > 151) {
-    return 4;
-  }
-  if (dustMeasure > 80) {
-    return 3;
-  }
-  if (dustMeasure > 30) {
-    return 2;
-  }
-  return 1;
-};
-
-const applyResultToDisplay = (dustMeasure, label) => {
-  const dustRank = getDustRank(dustMeasure);
+const applyResultToDisplay = (dustMeasure, label, index) => {
+  const dustRank = dustData[index]["pm10Grade"];
   const engRank = GRADE_TO_ENG[`${dustRank}`];
   document.querySelector(".dust-status-display").style.background =
     COLOR_FOR_BACKGROUND[engRank];
@@ -42,7 +29,7 @@ export const chartScrollHandler = e => {
   const dustMeasure = meta.controller._data[index];
   const label = meta.data[index]._model.label;
 
-  applyResultToDisplay(dustMeasure, label);
+  applyResultToDisplay(dustMeasure, label, index);
 };
 
 export default chartScrollHandler;

@@ -12,11 +12,11 @@ import { startEvent } from "./event";
 import css from "./style/forecast.css";
 
 const mount = async target => {
-  const { informCause, informGrade, images } = await getForecastData();
+  const { informOverall, informGrade, images } = await getForecastData();
   const children = [
     header(),
     imgSet(images),
-    informCauseDOM(informCause),
+    informCauseDOM(informOverall),
     informGradeDOM(informGrade),
     controller(),
     gauge()

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class AirQualityInfo {
     private String dataTime;
     private int pm10Value;
-    private int pm10Grade;
+    private int pm10Grade1h;
     private String stationName;
 
     public String getDataTime() {
@@ -25,12 +25,12 @@ public class AirQualityInfo {
         this.pm10Value = pm10Value;
     }
 
-    public int getPm10Grade() {
-        return pm10Grade;
+    public int getPm10Grade1h() {
+        return pm10Grade1h;
     }
 
-    public void setPm10Grade(int pm10Grade) {
-        this.pm10Grade = pm10Grade;
+    public void setPm10Grade1h(int pm10Grade1h) {
+        this.pm10Grade1h = pm10Grade1h;
     }
 
     public String getStationName() {

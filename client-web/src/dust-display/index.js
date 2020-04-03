@@ -7,7 +7,7 @@ import display from "./style/display.css";
 import reset from "./style/reset.css";
 
 export let chart;
-let dustData;
+export let dustData;
 
 const redraw = () => {
   const context = document.querySelector("canvas").getContext("2d");
@@ -28,12 +28,12 @@ const initialize = () => {
 };
 
 const mount = async target => {
-  const { location, dusts } = await getDisplayData();
-  dustData = dusts;
-  const targetDust = dusts[0];
-  target.appendChild(dustStatusDisplay(location, targetDust));
+  const { station, airQualityInfos } = await getDisplayData();
+  dustData = airQualityInfos;
+  const targetDust = airQualityInfos[0];
+  target.appendChild(dustStatusDisplay(station, targetDust));
   target.appendChild(dustChart());
-  initialize(dusts);
+  initialize();
 };
 
 mount(document.querySelector("#dust-display"));
