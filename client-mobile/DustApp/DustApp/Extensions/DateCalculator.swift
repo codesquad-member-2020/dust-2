@@ -27,7 +27,7 @@ extension String {
         let hour = components.hour ?? 0
         let minute = components.minute ?? 0
         let time = "\(String(format: "%02d", hour)):\(String(format: "%02d", minute))"
-        var dayOffset = "옛날"
+        var dayOffset: String = ""
         if calendar.isDateInToday(dustInfoDate) { dayOffset = "오늘" }
         if calendar.isDateInYesterday(dustInfoDate) { dayOffset = "어제" }
         return (dayOffset, time)
