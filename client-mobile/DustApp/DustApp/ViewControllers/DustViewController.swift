@@ -74,7 +74,9 @@ class DustViewController: UIViewController {
                 return
             }
             guard let station = station else { return }
-            self.viewModel.station = station
+            DispatchQueue.main.async {
+                self.viewModel.station = station
+            }
         }
     }
     
