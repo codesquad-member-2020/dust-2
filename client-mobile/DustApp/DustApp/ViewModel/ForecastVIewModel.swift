@@ -11,7 +11,8 @@ import UIKit
 class ForecastViewModel {
     
     var images: [UIImage] = []
-    var hasDownloaded: Bool = false { didSet { downloadImagesCompletion?(hasDownloaded, images) } }
+    var forecast: Forecast?
+    var hasDownloaded: Bool = false { didSet { downloadImagesCompletion?(hasDownloaded, forecast, images) } }
     var isPlaying: Bool = false { didSet { playingStatusHasChanged?(isPlaying) } }
     var index: Int = 0 {
         didSet {
@@ -20,7 +21,7 @@ class ForecastViewModel {
         }
     }
     
-    var downloadImagesCompletion: ((Bool, [UIImage]?) -> Void)?
+    var downloadImagesCompletion: ((Bool, Forecast?, [UIImage]?) -> Void)?
     var playingStatusHasChanged: ((Bool) -> Void)?
     var indexHasChanged: ((Int) -> Void)?
     
@@ -35,6 +36,7 @@ class ForecastViewModel {
     func requestImages() {
         ForecastNetworkManager.shared.requestForecastData { (forecast, error) in
             guard let forecast = forecast else { return }
+            self.forecast = forecast
             let imageURLStrings = forecast.images
             var placeholderImages = Array<UIImage?>(repeating: nil, count: imageURLStrings.count)
             var hasNilImage = true
