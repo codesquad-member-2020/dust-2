@@ -19,7 +19,7 @@ struct DustInfo: Codable {
     private(set) var time: String
     
     enum CodingKeys: String, CodingKey {
-        case grade = "pm10Grade"
+        case grade = "pm10Grade1h"
         case density = "pm10Value"
         case time = "dataTime"
     }

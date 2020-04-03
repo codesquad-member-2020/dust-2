@@ -11,7 +11,8 @@ import UIKit
 class ForecastViewModel {
     
     var images: [UIImage] = []
-    var hasDownloaded: Bool = false { didSet { downloadImagesCompletion?(hasDownloaded, images) } }
+    var forecast: Forecast?
+    var hasDownloaded: Bool = false { didSet { downloadImagesCompletion?(hasDownloaded, forecast, images) } }
     var isPlaying: Bool = false { didSet { playingStatusHasChanged?(isPlaying) } }
     var index: Int = 0 {
         didSet {
@@ -20,7 +21,7 @@ class ForecastViewModel {
         }
     }
     
-    var downloadImagesCompletion: ((Bool, [UIImage]?) -> Void)?
+    var downloadImagesCompletion: ((Bool, Forecast?, [UIImage]?) -> Void)?
     var playingStatusHasChanged: ((Bool) -> Void)?
     var indexHasChanged: ((Int) -> Void)?
     
@@ -33,20 +34,24 @@ class ForecastViewModel {
     }
     
     func requestImages() {
-        let imageURLStrings = ForecastNetworkManager.shared.URLStrings
-        var placeholderImages = Array<UIImage?>(repeating: nil, count: imageURLStrings.count)
-        var hasNilImage = true
-        
-        for (index, imageURLString) in imageURLStrings.enumerated() {
-            ForecastNetworkManager.shared.requestData(with: imageURLString) { (data, error) in
-                if let error = error { print(error); return }
-                guard let data = data else { return }
-                guard let image = UIImage(data: data) else { return }
-                placeholderImages[index] = image
-                placeholderImages.forEach { hasNilImage = ($0 == nil) }
-                if !hasNilImage {
-                    self.images = placeholderImages.map{ $0! }
-                    self.hasDownloaded = true
+        ForecastNetworkManager.shared.requestForecastData { (forecast, error) in
+            guard let forecast = forecast else { return }
+            self.forecast = forecast
+            let imageURLStrings = forecast.images
+            var placeholderImages = Array<UIImage?>(repeating: nil, count: imageURLStrings.count)
+            var hasNilImage = true
+            
+            for (index, imageURLString) in imageURLStrings.enumerated() {
+                ForecastNetworkManager.shared.requestData(with: imageURLString) { (data, error) in
+                    if let error = error { print(error); return }
+                    guard let data = data else { return }
+                    guard let image = UIImage(data: data) else { return }
+                    placeholderImages[index] = image
+                    placeholderImages.forEach { hasNilImage = ($0 == nil) }
+                    if !hasNilImage {
+                        self.images = placeholderImages.map{ $0! }
+                        self.hasDownloaded = true
+                    }
                 }
             }
         }
