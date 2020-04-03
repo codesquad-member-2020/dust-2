@@ -6,7 +6,7 @@ const makeChart = (context, dusts, options) => {
   const yLabels = dusts.map(dust => dust.dataTime);
   const data = dusts.map(dust => dust.pm10Value);
   const backgroundColor = dusts.map(
-    dust => COLOR_FOR_LABEL[GRADE_TO_ENG[`${dust.pm10Grade}`]]
+    dust => COLOR_FOR_LABEL[GRADE_TO_ENG[`${dust.pm10Grade1h}`]]
   );
   const chart = new Chart(context, {
     type: "horizontalBar",

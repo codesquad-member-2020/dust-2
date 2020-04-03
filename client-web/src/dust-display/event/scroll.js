@@ -11,7 +11,7 @@ const calculateDistanceFromTop = target => {
 };
 
 const applyResultToDisplay = (dustMeasure, label, index) => {
-  const dustRank = dustData[index]["pm10Grade"];
+  const dustRank = dustData[index]["pm10Grade1h"];
   const engRank = GRADE_TO_ENG[`${dustRank}`];
   document.querySelector(".dust-status-display").style.background =
     COLOR_FOR_BACKGROUND[engRank];
