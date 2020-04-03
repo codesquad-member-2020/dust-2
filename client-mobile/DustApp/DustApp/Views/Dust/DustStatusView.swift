@@ -45,20 +45,28 @@ class DustStatusView: UIView {
         }
     }
     
-    func updateStationLabel(with station: Station) {
+    func updateStationLabel(with stationName: String) {
         statusLoadingView.dismissFromStatusView()
-        let attributedText = NSMutableAttributedString(string: station.name, attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .heavy)])
+        let attributedText = NSMutableAttributedString(string: stationName, attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .heavy)])
         attributedText.append(NSAttributedString(string: " 측정소 기준", attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .regular)]))
         stationLabel.attributedText = attributedText
     }
     
-    func updateStatusView(with dustInfo: DustInfo, at index: Int) {
+    func updateDustInfo(with dustInfo: DustInfo?, at index: Int) {
         guard self.index != index else { return }
+        self.index = index
+        guard let dustInfo = dustInfo else { return }
         let grade = dustInfo.grade
         gradientColor = grade.color()
         gradeImage = grade.gradeImage()
         densityLabel.text = "\(dustInfo.density)𝜇g/m³"
         gradeLabel.text = grade.gradeWord()
+        updateTimeLabel(with: dustInfo)
+    }
+    
+    private func updateTimeLabel(with dustInfo: DustInfo) {
+        let calculatedDate = dustInfo.time.dateCalculator()
+        timeLabel.text = "\(calculatedDate.0) \(calculatedDate.1)"
     }
     
     private func updateGradientLayerColor(with color: CGColor) {
