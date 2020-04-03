@@ -4,7 +4,7 @@ module.exports = {
   entry: "./src/dust-display/index.js",
   output: {
     path: path.resolve(__dirname, "dist/"),
-    filename: "dust_bundle.js"
+    filename: "display_bundle.js"
   },
   module: {
     rules: [
