@@ -52,7 +52,7 @@ class DustStatusView: UIView {
         stationLabel.attributedText = attributedText
     }
     
-    func updateStatusView(with dustInfo: DustInfo?, at index: Int) {
+    func updateDustInfo(with dustInfo: DustInfo?, at index: Int) {
         guard self.index != index else { return }
         guard let dustInfo = dustInfo else { return }
         let grade = dustInfo.grade

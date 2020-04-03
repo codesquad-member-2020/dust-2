@@ -98,7 +98,7 @@ class DustViewController: UIViewController {
     private func updateStatusViewWithTopCell() {
         guard let index = self.tableView.indexPathsForVisibleRows?.first?.item else { return }
         let dustInfo = self.viewModel.dustInfo(at: index)
-        self.statusView.updateStatusView(with: dustInfo, at: index)
+        self.statusView.updateDustInfo(with: dustInfo, at: index)
     }
     
     private func configureStatusViewElements() {
