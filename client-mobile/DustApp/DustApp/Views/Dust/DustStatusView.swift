@@ -65,7 +65,7 @@ class DustStatusView: UIView {
     }
     
     private func updateTimeLabel(with dustInfo: DustInfo) {
-        let calculatedDate = dustInfo.time.dateCalculator()
+        let calculatedDate = dustInfo.time.calculate()
         timeLabel.text = "\(calculatedDate.0) \(calculatedDate.1)"
     }
     
