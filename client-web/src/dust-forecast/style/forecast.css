@@ -52,3 +52,11 @@ section.content {
   border-radius: 50%;
   display: inline-block;
 }
+
+.inform-cause {
+  height: 5vh;
+}
+
+.inform-grade {
+  height: 15vh;
+}

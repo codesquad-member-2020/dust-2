@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,9 @@
   "homepage": "https://github.com/sangwon21/dust-2#readme",
   "dependencies": {
     "chart.js": "^2.9.3",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "regenerator-runtime": "^0.13.5",
+    "wonnie-template": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

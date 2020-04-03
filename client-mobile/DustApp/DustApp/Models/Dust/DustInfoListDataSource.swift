@@ -10,12 +10,17 @@ import UIKit
 
 class DustInfoListDataSource: NSObject, UITableViewDataSource {
     
+    weak var viewModel: DustStatusViewModel?
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 40
+        return viewModel?.dustInfosCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DustInfoCell.identifier, for: indexPath) as! DustInfoCell
+        if let dustInfo = viewModel?.dustInfo(at: indexPath.item) {
+            cell.updateCell(with: dustInfo)
+        }
         return cell
     }
 }
