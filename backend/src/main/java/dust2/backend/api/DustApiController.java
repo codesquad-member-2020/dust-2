@@ -1,14 +1,18 @@
-package dust2.backend.controller;
+package dust2.backend.api;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import dust2.backend.domain.Dust;
 import dust2.backend.domain.Forecast;
 import dust2.backend.domain.LocationDust;
+import dust2.backend.util.ForecastApiUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,20 +21,11 @@ public class DustApiController {
     private static final Logger log = LoggerFactory.getLogger(DustApiController.class);
 
     @GetMapping("/forecast")
-    public Forecast showForecast() {
-        List<String> images = new ArrayList<>();
-        String informOverall = "○ [미세먼지] 원활한 대기 확산으로 대기 상태가 대체로 '보통' 수준일 것으로 예상됨.";
-        String informGrade = "서울 : 보통,제주 : 좋음,전남 : 좋음,전북 : 보통,광주 : 보통,경남 : 좋음,경북 : 좋음,울산 : 좋음,대구 : 좋음,부산 : 좋음,충남 : 보통,충북 : 보통,세종 : 보통,대전 : 보통,영동 : 좋음,영서 : 보통,경기남부 : 보통,경기북부 : 보통,인천 : 보통";
+    public ResponseEntity<Forecast> showForecast() throws JsonProcessingException, URISyntaxException {
+        Forecast todayForecast = ForecastApiUtils.getTodayForecastFromOpenApi();
+        log.info("todayForecast : {} ", todayForecast);
 
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138877");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138878");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138879");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138880");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138881");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138882");
-        images.add("http://www.airkorea.or.kr/file/viewImage/?atch_id=138841");
-
-        return new Forecast(informOverall, informGrade, images);
+        return ResponseEntity.ok(todayForecast);
     }
 
     @GetMapping("/location")
@@ -67,6 +62,5 @@ public class DustApiController {
 
         return new LocationDust(location, dusts);
     }
-
 
 }
