@@ -12,7 +12,7 @@ class DustStatusViewModel {
     
     var station: Station? {
         didSet {
-            self.stationName = station!.name
+            self.stationName = station!.station.stationName
             self.dustInfos = station?.dustInfos
         }
     }

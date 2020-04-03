@@ -27,6 +27,7 @@
 		38829F24243082110071302E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38829F22243082110071302E /* Main.storyboard */; };
 		38829F26243082150071302E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38829F25243082150071302E /* Assets.xcassets */; };
 		38829F29243082150071302E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38829F27243082150071302E /* LaunchScreen.storyboard */; };
+		38C561D52437192000B3D9FC /* StationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C561D42437192000B3D9FC /* StationInfo.swift */; };
 		38E084CD2431D87000E848DC /* DustInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E084CC2431D87000E848DC /* DustInfo.swift */; };
 		38E084D12432173F00E848DC /* DustInfoListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E084D02432173F00E848DC /* DustInfoListDelegate.swift */; };
 		38E084D32432186D00E848DC /* DustInfoListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E084D22432186D00E848DC /* DustInfoListDataSource.swift */; };
@@ -57,6 +58,7 @@
 		38829F25243082150071302E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38829F28243082150071302E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38829F2A243082150071302E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38C561D42437192000B3D9FC /* StationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfo.swift; sourceTree = "<group>"; };
 		38E084CC2431D87000E848DC /* DustInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfo.swift; sourceTree = "<group>"; };
 		38E084D02432173F00E848DC /* DustInfoListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoListDelegate.swift; sourceTree = "<group>"; };
 		38E084D22432186D00E848DC /* DustInfoListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoListDataSource.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				38E084CC2431D87000E848DC /* DustInfo.swift */,
 				38E084D22432186D00E848DC /* DustInfoListDataSource.swift */,
 				3804748D243317E3003EEFCC /* Station.swift */,
+				38C561D42437192000B3D9FC /* StationInfo.swift */,
 				3804748F243317F7003EEFCC /* Location.swift */,
 				3804749124331A91003EEFCC /* LocationManager.swift */,
 				3804749324331E44003EEFCC /* LocationManagerDelegate.swift */,
@@ -289,6 +292,7 @@
 				38829F1F243082110071302E /* SceneDelegate.swift in Sources */,
 				38E084D32432186D00E848DC /* DustInfoListDataSource.swift in Sources */,
 				3804749424331E44003EEFCC /* LocationManagerDelegate.swift in Sources */,
+				38C561D52437192000B3D9FC /* StationInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
