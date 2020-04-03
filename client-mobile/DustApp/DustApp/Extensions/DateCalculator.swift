@@ -9,25 +9,27 @@
 import Foundation
 
 extension DateFormatter {
-    static let dustDayFormatter: DateFormatter = {
+    static let dustDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)!
+        formatter.calendar = Calendar(identifier: .iso8601)
         return formatter
     }()
 }
 
 extension String {
-    func dateCalculator() -> (String, String) {
-        let dateStrings = self.split(separator: " ")
-        let dayString = String(dateStrings.first!)
-        let timeString = String(dateStrings.last!)
-        let dayDate = DateFormatter.dustDayFormatter.date(from: dayString)!
-        let calendar = Calendar(identifier: .gregorian)
-        let now = Date()
-        let components = calendar.dateComponents([.hour], from: dayDate, to: now)
-        let hours = components.hour!
-        let dayOffset = hours >= 24 ? "어제" : "오늘"
-        return (dayOffset, timeString)
+    func calculate() -> (String, String) {
+        guard let dustInfoDate = DateFormatter.dustDateFormatter.date(from: self) else { return ( "", "") }
+        var calendar = Calendar(identifier: .iso8601)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        let components = calendar.dateComponents([.hour, .minute], from: dustInfoDate)
+        let hour = components.hour ?? 0
+        let minute = components.minute ?? 0
+        let time = "\(String(format: "%02d", hour)):\(String(format: "%02d", minute))"
+        var dayOffset: String = ""
+        if calendar.isDateInToday(dustInfoDate) { dayOffset = "오늘" }
+        if calendar.isDateInYesterday(dustInfoDate) { dayOffset = "어제" }
+        return (dayOffset, time)
     }
 }
