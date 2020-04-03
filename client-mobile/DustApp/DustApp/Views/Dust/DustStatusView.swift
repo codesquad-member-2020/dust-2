@@ -60,6 +60,12 @@ class DustStatusView: UIView {
         gradeImage = grade.gradeImage()
         densityLabel.text = "\(dustInfo.density)𝜇g/m³"
         gradeLabel.text = grade.gradeWord()
+        updateTimeLabel(with: dustInfo)
+    }
+    
+    private func updateTimeLabel(with dustInfo: DustInfo) {
+        let calculatedDate = dustInfo.time.dateCalculator()
+        timeLabel.text = "\(calculatedDate.0) \(calculatedDate.1)"
     }
     
     private func updateGradientLayerColor(with color: CGColor) {
