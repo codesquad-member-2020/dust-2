@@ -42,14 +42,21 @@ class ForecastViewController: UIViewController {
     }
     
     private func configureViewModelImageDownloadHandler() {
-        viewModel.downloadImagesCompletion = { (hasDownloaded, images) in
+        viewModel.downloadImagesCompletion = { (hasDownloaded, forecast, images) in
             guard hasDownloaded else { return }
+            guard let forecast = forecast else { return }
             guard let images = images else { return }
             DispatchQueue.main.async {
+                self.updateLabels(with: forecast)
                 self.disableActivityIndicatorView()
                 self.enableViews(with: images)
             }
         }
+    }
+    
+    private func updateLabels(with forecast: Forecast) {
+        forecastLabel.text = forecast.forecastSummary
+        regionalGradeLabel.text = forecast.allGradesSummary
     }
     
     private func configureViewModelIndexHandler() {
