@@ -31,4 +31,16 @@ class DustNetworkManager: NetworkManagable {
             completion(data, nil)
         }.resume()
     }
+    
+    func requestStationData(with item: Any?, completion: @escaping (Station?, Error?) -> Void) {
+        requestData(with: item) { (data, error) in
+            if let error = error {
+                completion(nil, error)
+            }
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            guard let station = try? decoder.decode(Station.self, from: data) else { return }
+            completion(station, nil)
+        }
+    }
 }

@@ -68,7 +68,7 @@ class DustViewController: UIViewController {
     }
     
     private func requestStationData(with location: Location) {
-        MockupDustNetworkManager.shared.requestStationData(with: location) { (station, error) in
+        DustNetworkManager.shared.requestStationData(with: location) { (station, error) in
             if error != nil {
                 print(error!)
                 return

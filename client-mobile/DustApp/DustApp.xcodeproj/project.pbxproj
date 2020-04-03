@@ -20,7 +20,6 @@
 		386659AF2435E390002A8BDD /* ForecastNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386659AE2435E390002A8BDD /* ForecastNetworkManager.swift */; };
 		386659B124362A39002A8BDD /* StatusLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386659B024362A39002A8BDD /* StatusLoadingView.swift */; };
 		386659B324364A94002A8BDD /* DustStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386659B224364A94002A8BDD /* DustStatusViewModel.swift */; };
-		386659B524365384002A8BDD /* MockupDustNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386659B424365384002A8BDD /* MockupDustNetworkManager.swift */; };
 		386659B82436EB02002A8BDD /* DateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386659B72436EB02002A8BDD /* DateCalculator.swift */; };
 		38829F1D243082110071302E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38829F1C243082110071302E /* AppDelegate.swift */; };
 		38829F1F243082110071302E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38829F1E243082110071302E /* SceneDelegate.swift */; };
@@ -49,7 +48,6 @@
 		386659AE2435E390002A8BDD /* ForecastNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastNetworkManager.swift; sourceTree = "<group>"; };
 		386659B024362A39002A8BDD /* StatusLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusLoadingView.swift; sourceTree = "<group>"; };
 		386659B224364A94002A8BDD /* DustStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStatusViewModel.swift; sourceTree = "<group>"; };
-		386659B424365384002A8BDD /* MockupDustNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupDustNetworkManager.swift; sourceTree = "<group>"; };
 		386659B72436EB02002A8BDD /* DateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculator.swift; sourceTree = "<group>"; };
 		38829F19243082110071302E /* DustApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DustApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38829F1C243082110071302E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 				3804749124331A91003EEFCC /* LocationManager.swift */,
 				3804749324331E44003EEFCC /* LocationManagerDelegate.swift */,
 				385D9BD22434888E00BFC4B4 /* DustNetworkManager.swift */,
-				386659B424365384002A8BDD /* MockupDustNetworkManager.swift */,
 			);
 			path = Dust;
 			sourceTree = "<group>";
@@ -282,7 +279,6 @@
 				386659AF2435E390002A8BDD /* ForecastNetworkManager.swift in Sources */,
 				3804749224331A91003EEFCC /* LocationManager.swift in Sources */,
 				382C71F32435924B0054212C /* TogglePlayingButton.swift in Sources */,
-				386659B524365384002A8BDD /* MockupDustNetworkManager.swift in Sources */,
 				38E084D5243218B900E848DC /* DustInfoCell.swift in Sources */,
 				386659B124362A39002A8BDD /* StatusLoadingView.swift in Sources */,
 				38E084CD2431D87000E848DC /* DustInfo.swift in Sources */,
