@@ -1,4 +1,4 @@
-## 빌드 방법
+## API 서버 실행 방법
 
 ```java
 ./gradlew build
