@@ -39,19 +39,18 @@ class ForecastViewModel {
             self.forecast = forecast
             let imageURLStrings = forecast.images
             var placeholderImages = Array<UIImage?>(repeating: nil, count: imageURLStrings.count)
-            var hasNilImage = true
+            var successCount: Int = 0
             
             for (index, imageURLString) in imageURLStrings.enumerated() {
                 ForecastNetworkManager.shared.requestData(with: imageURLString) { (data, error) in
                     if let error = error { print(error); return }
                     guard let data = data else { return }
                     guard let image = UIImage(data: data) else { return }
+                    successCount += 1
                     placeholderImages[index] = image
-                    placeholderImages.forEach { hasNilImage = ($0 == nil) }
-                    if !hasNilImage {
-                        self.images = placeholderImages.map{ $0! }
-                        self.hasDownloaded = true
-                    }
+                    guard successCount >= placeholderImages.count else { return }
+                    self.images = placeholderImages.map{ $0! }
+                    self.hasDownloaded = true
                 }
             }
         }
