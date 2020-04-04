@@ -28,14 +28,13 @@ class ForecastImageView: UIImageView {
     
     private func play() {
         isPlaying = true
-        UIView.transition(with: self, duration: durationTime, options: .transitionCrossDissolve, animations: {
-            self.viewModel?.index += 1
-            self.image = self.viewModel?.image(at: self.viewModel!.index)
-        }, completion: { _ in
+        viewModel?.index += 1
+        image = viewModel?.image(at: viewModel!.index)
+        DispatchQueue.main.asyncAfter(deadline: .now() + durationTime) {
             if self.isPlaying {
                 self.play()
             }
-        })
+        }
     }
     
     private func pause() {
