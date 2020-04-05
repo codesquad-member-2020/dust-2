@@ -12,7 +12,7 @@ class ForecastImageView: UIImageView {
     
     var viewModel: ForecastViewModel?
     private let durationTime: Double = 1
-    var isPlaying: Bool = false
+    private var isPlaying: Bool = false
     
     func configureImage(image: UIImage?) {
         self.image = image
