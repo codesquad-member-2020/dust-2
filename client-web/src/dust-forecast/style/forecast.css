@@ -1,0 +1,59 @@
+.forecast-header {
+  margin-top: 0.5rem;
+  font-size: 2rem;
+  color: #000;
+  text-align: center;
+}
+
+section.content {
+  height: 1000px;
+  background-color: darkseagreen;
+}
+
+.img-set img {
+  width: 100%;
+}
+
+.controller {
+  display: flex;
+}
+
+.gauge {
+  position: relative;
+  margin-top: 1em;
+}
+
+.bar {
+  height: 10px;
+  background: gray;
+  margin-left: 0.5em;
+  width: 90%;
+}
+
+.gauge > button {
+  position: absolute;
+  top: -0.5em;
+  left: 0;
+}
+
+.stop {
+  width: 50px;
+}
+
+.blue-dot {
+  height: 25px;
+  width: 25px;
+  background-color: rgb(59, 49, 201);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.inform-cause {
+  font-size: 0.5rem;
+  height: 2.5vh;
+}
+
+.inform-grade {
+  font-size: 0.7rem;
+  height: 7vh;
+}
